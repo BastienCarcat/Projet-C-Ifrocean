@@ -14,18 +14,12 @@ namespace Projet_CS.DAL
 {
     class EtudeDAL
     {
-        private static MySqlConnection connection;
-        public EtudeDAL()
-        {
-            DALConnection.OpenConnection(); //  si la connexion est déjà ouverte, il ne la refera pas (voir code dans DALConnection)
-            connection = DALConnection.connection;
-            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
-        }
+       
         public static ObservableCollection<EtudeDAO> selectEtudes()
         {
             ObservableCollection<EtudeDAO> l = new ObservableCollection<EtudeDAO>();
             string query = "SELECT * FROM Etude;";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             cmd.ExecuteNonQuery();
 
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -41,7 +35,7 @@ namespace Projet_CS.DAL
         public static EtudeDAO getEtude(int idEtude)
         {
             string query = "SELECT * FROM Etude WHERE idEtude=" + idEtude + ";";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
@@ -53,7 +47,7 @@ namespace Projet_CS.DAL
         {
             string query = "UPDATE Etude set date=\"" + u.dateEtudeDAO + "\", titre=\"" + u.titreEtudeDAO + "\", nbTotalEspeceRencontree=\"" + u.nbTotalEspeceRencontreeEtudeDAO + "\", idEquipe=\"" + u.idEquipeEtudeDAO + "\" where idEtude=" + u.idEtudeDAO + ";";
             //UPDATE Etude set date= + STR_TO_DATE('\"" + u.dateEtudeDAO + "\"', ' % d/%m/%Y %H:%i:%s'), titre=\"" + u.titreEtudeDAO + "\", nbTotalEspeceRencontree=\"" + u.nbTotalEspeceRencontreeEtudeDAO + "\", idEquipe=\"" + u.idEquipeEtudeDAO + "\" where idEtude=" + u.idEtudeDAO + ";"
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
@@ -61,14 +55,14 @@ namespace Projet_CS.DAL
         {
             int id = getMaxIdEtude() + 1;
             string query = "INSERT INTO Etude VALUES (\"" + id + "\",\"" + u.dateEtudeDAO + "\",\"" + u.titreEtudeDAO + "\",\"" + u.nbTotalEspeceRencontreeEtudeDAO + "\",\"" + u.idEquipeEtudeDAO + "\");";
-            MySqlCommand cmd2 = new MySqlCommand(query, connection);
+            MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
             cmd2.ExecuteNonQuery();
         }
         public static int getMaxIdEtude()
         {
-            string query = "SELECT MAX(idEtude) FROM Etude;";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            string query = "SELECT IFNULL(MAX(idEtude),0) FROM Etude;";
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             cmd.ExecuteNonQuery();
 
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -80,7 +74,7 @@ namespace Projet_CS.DAL
         public static void supprimerEtude(int id)
         {
             string query = "DELETE FROM Etude WHERE idEtude = \"" + id + "\";";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }

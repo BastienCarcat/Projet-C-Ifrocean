@@ -41,7 +41,7 @@ namespace Projet_CS.Vue
             myDataObject = new CommuneViewModel();
             myDataObject.nomCommuneProperty = nomTextBox.Text;
             string DepartementIdToParse = idDepartementTextBox.Text;
-            int defaultValue = 1; //si la strin g est abhérente, le département par défaut est 1 -> mauvaisNumDépartement
+            int defaultValue = 1; //si la string est abhérente, le département par défaut est 1 -> mauvaisNumDépartement
             int result;
             myDataObject.departementCommune = DepartementORM.getDepartement(int.TryParse(DepartementIdToParse, out result) ? result : defaultValue);
             CommuneViewModel nouveau = new CommuneViewModel(CommuneDAL.getMaxIdCommune() + 1, myDataObject.nomCommuneProperty, myDataObject.departementCommuneProperty);
@@ -62,6 +62,16 @@ namespace Projet_CS.Vue
             {
                 selectedCommuneId = (le.ElementAt<CommuneViewModel>(listeCommunes.SelectedIndex)).idCommuneProperty;
             }
+        }
+        private void retourMenu(object sender, RoutedEventArgs e)
+        {
+            Window pageMenu = Window.GetWindow(this);
+            pageMenu.Content = new MenuDeSelection();
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

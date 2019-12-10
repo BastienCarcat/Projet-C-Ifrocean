@@ -8,16 +8,49 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AfficherPlages">
 
-    <Grid>
-        <DataGrid Name="listePlages" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="81,30,0,148" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listePlages_SelectionChanged" Width="633">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="id" Binding="{Binding idPlageProperty, Mode=OneWay}" />
-                <DataGridTextColumn Header="nom" Binding="{Binding nomPlageProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="idCommune" Binding="{Binding idCommunePlageProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="nbEspecesDifferentes" Binding="{Binding nbEspecesDifferentesPlageProperty, Mode=TwoWay}" />
-                <DataGridTextColumn Header="surface" Binding="{Binding surfacePlageProperty, Mode=TwoWay}" />
-            </DataGrid.Columns>
-        </DataGrid>
-        <Button x:Name="supprimerButton" Content="Supprimer" MouseDoubleClick="supprimerButton_MouseDoubleClick" BorderThickness="2,2,2,2" Margin="297,318,316,56"/>
-    </Grid>
+    <DockPanel>
+        <!--<TextBox AcceptsReturn="True" />-->
+        <StackPanel >
+
+            <TabControl Margin="0,0,0,0" Height="394">
+                <TabItem Header="TextBox">
+                    <Grid Name ="grigrid" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
+                        <StackPanel>
+
+                            <Label Content="nom"></Label>
+                            <TextBox Name="nomTextBox" Height="20" Margin="0,0,0.300,0" />
+                            <Label Content="Id commune"></Label>
+                            <TextBox Name="idCommuneTextBox" Height="20" Margin="0,0,0.300,0" />
+                            <Label Content="nombre d'espèces différentes"></Label>
+                            <TextBox Name="nbEspecesDifferentesTextBox" Height="20" Margin="0,0,0.300,0" />
+                            <Label Content="Surface"></Label>
+                            <TextBox Name="surfaceTextBox" Height="20" Margin="0,0,0.300,0" />
+
+                        </StackPanel>
+                        <Button x:Name="btnRetourForm" Content="Menu" Click="retourMenu" Height="35" Margin="478,242,151.7,23" Width="164" RenderTransformOrigin="0.5,2.31"/>
+                        <Button x:Name="btnAjt" Content="Ajouter" Click="ajouterButton" Height="35" Margin="125,242,504.7,23" Width="164" RenderTransformOrigin="0.5,2.31"/>
+                    </Grid>
+                </TabItem>
+
+                <TabItem Header="DataGrid">
+                    <StackPanel>
+                        <Grid>
+                            <DataGrid Name="listePlages" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="81,30,0,148" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listePlages_SelectionChanged" Width="633">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="id" Binding="{Binding idPlageProperty, Mode=OneWay}" />
+                                    <DataGridTextColumn Header="nom" Binding="{Binding nomPlageProperty, Mode=TwoWay}" />
+                                    <DataGridTextColumn Header="idCommune" Binding="{Binding idCommunePlageProperty, Mode=TwoWay}" />
+                                    <DataGridTextColumn Header="nombre d'espèces différentes" Binding="{Binding nbEspecesDifferentesPlageProperty, Mode=TwoWay}" />
+                                    <DataGridTextColumn Header="surface" Binding="{Binding surfacePlageProperty, Mode=TwoWay}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Button x:Name="btnSuppr" Content="Supprimer" Click="supprimerButton" Margin="47.334,277,490.999,82" Grid.Column="2"/>
+                            <Button x:Name="btnRetourData" Content="Menu" Click="retourMenu" Height="35" Margin="0,277,79.999,82" HorizontalAlignment="Right" Width="222" RenderTransformOrigin="0.5,2.31" Grid.Column="2" />
+                        </Grid>
+
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+        </StackPanel>
+    </DockPanel>
 </Page>

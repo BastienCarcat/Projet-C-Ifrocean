@@ -15,29 +15,39 @@
             <TabControl Margin="0,0,0,0" Height="394">
                 <TabItem Header="TextBox">
                     <Grid Name ="grigrid" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
-                        <StackPanel>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="77*"/>
+                            <ColumnDefinition Width="716*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.ColumnSpan="2" Margin="0,0,-0.3,0">
 
                             <Label Content="nom"></Label>
                             <TextBox Name="nomTextBox" Height="20" Margin="0,0,0.300,0" />
                             <Label Content="id Département"></Label>
                             <TextBox Name="idDepartementTextBox" Height="20" Margin="0,0,0.300,0" />
-                            <Button x:Name="btnAjt" Content="Ajouter" Click="ajouterButton" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" />
-
                         </StackPanel>
+                        <Button x:Name="btnRetourForm" Content="Menu" Click="retourMenu" Height="35" Margin="412.667,135,139.7,130" Width="164" RenderTransformOrigin="0.5,2.31" Grid.Column="1"/>
+                        <Button x:Name="btnAjt" Content="Ajouter" Click="ajouterButton" Height="35" Margin="32.667,135,519.7,130" Width="164" RenderTransformOrigin="0.5,2.31" Grid.Column="1"/>
                     </Grid>
                 </TabItem>
 
                 <TabItem Header="DataGrid">
                     <StackPanel>
                         <Grid>
-                            <DataGrid Name="listeCommunes" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="81,30,0,148" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeCommunes_SelectionChanged" Width="633">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="17*"/>
+                                <ColumnDefinition Width="15*"/>
+                                <ColumnDefinition Width="761*"/>
+                            </Grid.ColumnDefinitions>
+                            <DataGrid Name="listeCommunes" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="47.334,30,0,148" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeCommunes_SelectionChanged" Width="633" Grid.Column="2">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="id" Binding="{Binding idCommuneProperty, Mode=OneWay}" />
                                     <DataGridTextColumn Header="nom" Binding="{Binding nomCommuneProperty, Mode=TwoWay}" />
                                     <DataGridTextColumn Header="idDepartement" Binding="{Binding departementCommuneNameProperty, Mode=OneWay}" />
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <Button x:Name="btnSuppr" Content="Supprimer" Click="supprimerButton" Margin="297,318,316,56"/>
+                            <Button x:Name="btnSuppr" Content="Supprimer" Click="supprimerButton" Margin="47.334,277,490.999,82" Grid.Column="2"/>
+                            <Button x:Name="btnRetourData" Content="Menu" Click="retourMenu" Height="35" Margin="0,277,79.999,82" HorizontalAlignment="Right" Width="222" RenderTransformOrigin="0.5,2.31" Grid.Column="2" />
                         </Grid>
 
                     </StackPanel>

@@ -39,12 +39,26 @@ namespace Projet_CS.Vue
         }
         private void ajouterButton(object sender, RoutedEventArgs e)
         {
-            EtudeViewModel nouveau = new EtudeViewModel(EtudeDAL.getMaxIdEtude() + 1, myDataObject.dateEtudeProperty, myDataObject.titreEtudeProperty, myDataObject.nbTotalEspeceRencontreeEtudeProperty, myDataObject.idEquipeEtudeProperty);
+
+            myDataObject = new EtudeViewModel();
+
+            DateTime defaultValDate = DateTime.Now;
+            myDataObject.dateEtudeProperty = DateTime.TryParse(dateTextBox.Text, out DateTime resultDate) ? resultDate : defaultValDate;
+
+            myDataObject.titreEtudeProperty = titreTextBox.Text;
+
+            int.TryParse(nbTotalEspeceRencontreeTextBox.Text, out int resultNbEspece);
+            myDataObject.nbTotalEspeceRencontreeEtudeProperty = resultNbEspece;
+
+            int defaultValEquipe = 1; //si mauvaise valeur -> équipe 1 par default
+            myDataObject.equipeEtude = EquipeORM.getEquipe(int.TryParse(idEquipeTextBox.Text, out int resultEquipe) ? resultEquipe : defaultValEquipe);
+
+            EtudeViewModel nouveau = new EtudeViewModel(EtudeDAL.getMaxIdEtude() + 1, myDataObject.dateEtudeProperty, myDataObject.titreEtudeProperty, myDataObject.nbTotalEspeceRencontreeEtudeProperty, myDataObject.equipeEtudeProperty);
             lp.Add(nouveau);
             EtudeDAO.insertEtude(nouveau);
             listeEtudes.Items.Refresh();
             compteur = lp.Count();
-            myDataObject = new EtudeViewModel(EtudeDAL.getMaxIdEtude() + 1, myDataObject.dateEtudeProperty, "", myDataObject.nbTotalEspeceRencontreeEtudeProperty, myDataObject.idEquipeEtudeProperty);
+            myDataObject = new EtudeViewModel(EtudeDAL.getMaxIdEtude() + 1, myDataObject.dateEtudeProperty, "", myDataObject.nbTotalEspeceRencontreeEtudeProperty, myDataObject.equipeEtudeProperty);
         }
         private void supprimerButton(object sender, RoutedEventArgs e)
         {
@@ -52,6 +66,12 @@ namespace Projet_CS.Vue
             lp.Remove(toRemove);
             listeEtudes.Items.Refresh();
             EtudeDAO.supprimerEtude(selectedEtudeId);
+        }
+
+        private void retourMenu(object sender, RoutedEventArgs e)
+        {
+            Window pageMenu = Window.GetWindow(this);
+            pageMenu.Content = new MenuDeSelection();
         }
         private void listeEtudes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

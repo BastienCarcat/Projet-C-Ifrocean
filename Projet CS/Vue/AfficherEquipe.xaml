@@ -21,9 +21,9 @@
                             <TextBox Name="nomTextBox" Height="20" Margin="0,0,0.300,0" />
                             <Label Content="nombreMembres"></Label>
                             <TextBox Name="nombreMembresTextBox" Height="20" Margin="0,0,0.300,0" />
-                            <Button x:Name="btnAjt" Content="Ajouter" Click="ajouterButton" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" />
-
                         </StackPanel>
+                        <Button x:Name="btnRetourForm" Content="Menu" Click="retourMenu" Height="35" Margin="483,135,146.7,130" Width="164" RenderTransformOrigin="0.5,2.31"/>
+                        <Button x:Name="btnAjt" Content="Ajouter" Click="ajouterButton" Height="35" Margin="125,135,504.7,130" Width="164" RenderTransformOrigin="0.5,2.31"/>
                     </Grid>
                 </TabItem>
 
@@ -37,7 +37,8 @@
                                     <DataGridTextColumn Header="Nombre de Membres" Binding="{Binding nombreMembresEquipeProperty, Mode=TwoWay}" />
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <Button x:Name="btnSuppr" Content="Supprimer" Click="supprimerButton" BorderThickness="2,2,2,2" Margin="297,318,316,56"/>
+                            <Button x:Name="btnSuppr" Content="Supprimer" Click="supprimerButton" Margin="47.334,277,490.999,82" Grid.Column="2"/>
+                            <Button x:Name="btnRetourData" Content="Menu" Click="retourMenu" Height="35" Margin="0,277,79.999,82" HorizontalAlignment="Right" Width="222" RenderTransformOrigin="0.5,2.31" Grid.Column="2" />
                         </Grid>
 
                     </StackPanel>

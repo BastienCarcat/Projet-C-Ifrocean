@@ -1,0 +1,20 @@
+﻿<Page x:Class="Projet_CS.Vue.MenuDeSelection"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Projet_CS.Vue"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MenuDeSelection">
+
+    <Grid>
+        <Button x:Name="btnCommune" Content="Communes" Click="ouvrirCommune" Margin="0,71,636,298.333" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" />
+        <Button x:Name="btnDepartement" Content="Departements" Click="ouvrirDepartement" Margin="0,329,108,40" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" />
+        <Button x:Name="btnEquipe" Content="Equipes" Click="ouvrirEquipe" Margin="0,200,108,170" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" />
+        <Button x:Name="btnEspece" Content="Especes" Click="ouvrirEspece" Margin="0,71,108,298" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" />
+        <Button x:Name="btnEtude" Content="Etudes" Click="ouvrirEtude" Margin="0,71,371,298" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" />
+        <Button x:Name="btnPlage" Content="Plages" Click="ouvrirPlage" Margin="0,329,636,40" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" />
+        <Button x:Name="btnUtilisateur" Content="Utilisateurs" Click="ouvrirUtilisateur" Margin="0,200,636,169" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" />
+    </Grid>
+</Page>

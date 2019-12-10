@@ -39,6 +39,8 @@ namespace Projet_CS.Vue
         }
         private void ajouterButton(object sender, RoutedEventArgs e)
         {
+            myDataObject = new EspeceViewModel();
+            myDataObject.nomEspeceProperty = nomTextBox.Text;            
             EspeceViewModel nouveau = new EspeceViewModel(EspeceDAL.getMaxIdEspece() + 1, myDataObject.nomEspeceProperty);
             le.Add(nouveau);
             EspeceDAO.insertEspece(nouveau);
@@ -52,6 +54,12 @@ namespace Projet_CS.Vue
             le.Remove(toRemove);
             listeEspeces.Items.Refresh();
             EspeceDAO.supprimerEspece(selectedEspeceId);
+        }
+
+        private void retourMenu(object sender, RoutedEventArgs e)
+        {
+            Window pageMenu = Window.GetWindow(this);
+            pageMenu.Content = new MenuDeSelection();
         }
         private void listeEspeces_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

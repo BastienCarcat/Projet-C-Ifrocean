@@ -14,17 +14,12 @@ namespace Projet_CS.DAL
 {
     class DepartementDAL
     {
-        private static MySqlConnection connection;
-        public DepartementDAL()
-        {
-            DALConnection.OpenConnection(); //  si la connexion est déjà ouverte, il ne la refera pas (voir code dans DALConnection)
-            connection = DALConnection.connection;
-        }
+        
         public static ObservableCollection<DepartementDAO> selectDepartements()
         {
             ObservableCollection<DepartementDAO> l = new ObservableCollection<DepartementDAO>();
             string query = "SELECT * FROM departement;";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             cmd.ExecuteNonQuery();
 
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -44,14 +39,22 @@ namespace Projet_CS.DAL
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            DepartementDAO user = new DepartementDAO(reader.GetInt32(0), reader.GetString(1));
+            DepartementDAO departement;
+            if (reader.HasRows)
+            {
+                departement = new DepartementDAO(reader.GetInt32(0), reader.GetString(1));
+            }
+            else
+            {
+                departement = new DepartementDAO(1, "MauvaisNumeroDepartement");
+            }
             reader.Close();
-            return user;
+            return departement;
         }
         public static void updateDepartement(DepartementDAO u)
         {
             string query = "UPDATE departement set nom=\"" + u.nomDepartementDAO + "\" where idDepartement=" + u.idDepartementDAO + ";";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
@@ -59,14 +62,14 @@ namespace Projet_CS.DAL
         {
             int id = getMaxIdDepartement() + 1;
             string query = "INSERT INTO departement VALUES (\"" + id + "\",\"" + u.nomDepartementDAO + "\");";
-            MySqlCommand cmd2 = new MySqlCommand(query, connection);
+            MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
             cmd2.ExecuteNonQuery();
         }
         public static int getMaxIdDepartement()
         {
-            string query = "SELECT MAX(idDepartement) FROM departement;";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            string query = "SELECT IFNULL(MAX(idDepartement),0) FROM departement;";
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             cmd.ExecuteNonQuery();
 
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -78,7 +81,7 @@ namespace Projet_CS.DAL
         public static void supprimerDepartement(int id)
         {
             string query = "DELETE FROM departement WHERE idDepartement = \"" + id + "\";";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }

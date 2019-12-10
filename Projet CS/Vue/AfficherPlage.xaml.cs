@@ -37,7 +37,7 @@ namespace Projet_CS.Vue
             lp = PlageORM.listePlages();
             listePlages.ItemsSource = lp;
         }
-        private void nomPrenomButton_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ajouterButton(object sender, RoutedEventArgs e)
         {
             PlageViewModel nouveau = new PlageViewModel(PlageDAL.getMaxIdPlage() + 1, myDataObject.nomPlageProperty, myDataObject.idCommunePlageProperty, myDataObject.nbEspecesDifferentesPlageProperty, myDataObject.surfacePlageProperty);
             lp.Add(nouveau);
@@ -46,12 +46,17 @@ namespace Projet_CS.Vue
             compteur = lp.Count();
             myDataObject = new PlageViewModel(PlageDAL.getMaxIdPlage() + 1, "", myDataObject.idCommunePlageProperty, myDataObject.nbEspecesDifferentesPlageProperty, myDataObject.surfacePlageProperty);
         }
-        private void supprimerButton_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void supprimerButton(object sender, RoutedEventArgs e)
         {
             PlageViewModel toRemove = (PlageViewModel)listePlages.SelectedItem;
             lp.Remove(toRemove);
             listePlages.Items.Refresh();
             PlageDAO.supprimerPlage(selectedPlageId);
+        }
+        private void retourMenu(object sender, RoutedEventArgs e)
+        {
+            Window pageMenu = Window.GetWindow(this);
+            pageMenu.Content = new MenuDeSelection();
         }
         private void listePlages_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

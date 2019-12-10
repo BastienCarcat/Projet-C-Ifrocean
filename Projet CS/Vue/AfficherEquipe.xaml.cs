@@ -40,7 +40,7 @@ namespace Projet_CS.Vue
         private void ajouterButton(object sender, RoutedEventArgs e)
         {            
             myDataObject = new EquipeViewModel();
-            myDataObject.nomEquipeProperty = nomTextBox.Text;
+            myDataObject.nomEquipeProperty = nomTextBox.Text;            
             int.TryParse(nombreMembresTextBox.Text, out int result);
             myDataObject.nombreMembresEquipeProperty = result;
             EquipeViewModel nouveau = new EquipeViewModel(EquipeDAL.getMaxIdEquipe() + 1, myDataObject.nomEquipeProperty, myDataObject.nombreMembresEquipeProperty);
@@ -62,6 +62,11 @@ namespace Projet_CS.Vue
             {
                 selectedEquipeId = (le.ElementAt<EquipeViewModel>(listeEquipes.SelectedIndex)).idEquipeProperty;
             }
+        }
+        private void retourMenu(object sender, RoutedEventArgs e)
+        {
+            Window pageMenu = Window.GetWindow(this);
+            pageMenu.Content = new MenuDeSelection();
         }
     }
 }

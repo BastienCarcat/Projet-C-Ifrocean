@@ -28,7 +28,7 @@ namespace Projet_CS.ORM
             {
                 int idDepartement = element.idDepartementDAO;
 
-                DepartementViewModel m = DepartementORM.getDepartement(idDepartement); // Plus propre que d'aller chercher le métier dans la DAO.
+                DepartementViewModel m = DepartementORM.getDepartement(idDepartement); // Plus propre que d'aller chercher le departement dans la DAO.
                 CommuneViewModel e = new CommuneViewModel(element.idCommuneDAO, element.nomCommuneDAO, m);
                 l.Add(e);
             }

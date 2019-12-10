@@ -53,6 +53,11 @@ namespace Projet_CS.Vue
             listeUtilisateurs.Items.Refresh();
             UtilisateurDAO.supprimerUtilisateur(selectedUtilisateurId);
         }
+        private void retourMenu(object sender, RoutedEventArgs e)
+        {
+            Window pageMenu = Window.GetWindow(this);
+            pageMenu.Content = new MenuDeSelection();
+        }
         private void listeUtilisateurs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if ((listeUtilisateurs.SelectedIndex < lp.Count) && (listeUtilisateurs.SelectedIndex >= 0))

@@ -29,3 +29,36 @@ C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet CS\Projet CS\obj\Debug
 C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet CS\Projet CS\obj\Debug\Vue\AfficherEspece.baml
 C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet CS\Projet CS\obj\Debug\Vue\AfficherEtude.g.cs
 C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet CS\Projet CS\obj\Debug\Vue\AfficherEtude.baml
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\bin\Debug\Projet CS.exe.config
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\bin\Debug\Projet CS.exe
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\bin\Debug\Projet CS.pdb
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\bin\Debug\MySql.Data.dll
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Projet CS.csprojAssemblyReference.cache
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\AfficherCommune.g.cs
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\AfficherDepartement.g.cs
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\AfficherEquipe.g.cs
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\AfficherEspece.g.cs
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\AfficherEtude.g.cs
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\AfficherPlage.g.cs
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\AfficherUtilisateurs.g.cs
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\MainWindow.g.cs
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\App.g.cs
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Projet CS_MarkupCompile.cache
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Projet CS_MarkupCompile.lref
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\AfficherCommune.baml
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\AfficherDepartement.baml
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\AfficherEquipe.baml
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\AfficherEspece.baml
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\AfficherEtude.baml
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\AfficherPlage.baml
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\AfficherUtilisateurs.baml
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\MainWindow.baml
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Projet CS.g.resources
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Projet_CS.Properties.Resources.resources
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Projet CS.csproj.GenerateResource.cache
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Projet CS.csproj.CoreCompileInputs.cache
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Projet CS.csproj.CopyComplete
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Projet CS.exe
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Projet CS.pdb
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\MenuDeSelection.g.cs
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\MenuDeSelection.baml

@@ -15,17 +15,17 @@ namespace Projet_CS.VM
         public DateTime date;
         public string titre;
         public int nbTotalEspeceRencontree;
-        public int idEquipe;
+        public EquipeViewModel equipeEtude;
 
         public EtudeViewModel() { }
 
-        public EtudeViewModel(int idEtude, DateTime date, string titre, int nbTotalEspeceRencontree, int idEquipe)
+        public EtudeViewModel(int idEtude, DateTime date, string titre, int nbTotalEspeceRencontree, EquipeViewModel equipeEtude)
         {
             this.idEtude = idEtude;
             this.date = date;
             this.titre = titre;
             this.nbTotalEspeceRencontree = nbTotalEspeceRencontree;
-            this.idEquipe = idEquipe;
+            this.equipeEtude = equipeEtude;
         }
 
         public int idEtudeProperty
@@ -59,14 +59,13 @@ namespace Projet_CS.VM
                 OnPropertyChanged("nbTotalEspeceRencontreeEtudeProperty");
             }
         }
-        public int idEquipeEtudeProperty
+        public EquipeViewModel equipeEtudeProperty
         {
-            get { return idEquipe; }
-            set
-            {
-                this.idEquipe = value;
-                OnPropertyChanged("idEquipeEtudeProperty");
-            }
+            get { return equipeEtude; }
+        }
+        public string equipeEtudeNameProperty
+        {
+            get { return equipeEtude.nomEquipeProperty; }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

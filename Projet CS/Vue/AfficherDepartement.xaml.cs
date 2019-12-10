@@ -59,7 +59,11 @@ namespace Projet_CS.Vue
                 selectedDepartementId = (le.ElementAt<DepartementViewModel>(listeDepartements.SelectedIndex)).idDepartementProperty;
             }
         }
-
+        private void retourMenu(object sender, RoutedEventArgs e)
+        {
+            Window pageMenu = Window.GetWindow(this);
+            pageMenu.Content = new MenuDeSelection();
+        }
         private void PrenomTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 

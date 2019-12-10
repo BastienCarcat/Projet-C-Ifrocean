@@ -27,10 +27,11 @@ namespace Projet_CS
     {
         public MainWindow()
         {
+            DALConnection.OpenConnection();
             InitializeComponent();
-            Page AfficherEquipes = new AfficherEquipe();
-            this.Content = AfficherEquipes;
+            this.Content = new MenuDeSelection();
         }
+               
 
         //private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         //{

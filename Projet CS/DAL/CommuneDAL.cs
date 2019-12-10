@@ -14,17 +14,12 @@ namespace Projet_CS.DAL
 {
     class CommuneDAL
     {
-        private static MySqlConnection connection;
-        public CommuneDAL()
-        {
-            DALConnection.OpenConnection(); //  si la connexion est déjà ouverte, il ne la refera pas (voir code dans DALConnection)
-            connection = DALConnection.connection;
-        }
+        
         public static ObservableCollection<CommuneDAO> selectCommunes()
         {
             ObservableCollection<CommuneDAO> l = new ObservableCollection<CommuneDAO>();
             string query = "SELECT * FROM Commune;";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             cmd.ExecuteNonQuery();
 
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -40,7 +35,7 @@ namespace Projet_CS.DAL
         public static CommuneDAO getCommune(int idCommune)
         {
             string query = "SELECT * FROM Commune WHERE idCommune=" + idCommune + ";";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
@@ -60,7 +55,7 @@ namespace Projet_CS.DAL
         public static void updateCommune(CommuneDAO u)
         {
             string query = "UPDATE Commune set nom=\"" + u.nomCommuneDAO + "\", idDepartement=\"" + u.idDepartementDAO + "\" where idCommune=" + u.idCommuneDAO + ";";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
@@ -68,14 +63,14 @@ namespace Projet_CS.DAL
         {
             int id = getMaxIdCommune() + 1;
             string query = "INSERT INTO Commune VALUES (\"" + id + "\",\"" + u.nomCommuneDAO + "\",\"" + u.idDepartementDAO + "\");";
-            MySqlCommand cmd2 = new MySqlCommand(query, connection);
+            MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
             cmd2.ExecuteNonQuery();
         }
         public static int getMaxIdCommune()
         {
-            string query = "SELECT MAX(idCommune) FROM Commune;";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            string query = "SELECT IFNULL(MAX(idCommune),0) FROM Commune;";
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             cmd.ExecuteNonQuery();
 
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -87,7 +82,7 @@ namespace Projet_CS.DAL
         public static void supprimerCommune(int id)
         {
             string query = "DELETE FROM Commune WHERE idCommune = \"" + id + "\";";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }

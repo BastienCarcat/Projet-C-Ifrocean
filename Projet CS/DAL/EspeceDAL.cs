@@ -11,17 +11,12 @@ namespace Projet_CS.DAL
 {
     class EspeceDAL
     {
-        private static MySqlConnection connection;
-        public EspeceDAL()
-        {
-            DALConnection.OpenConnection(); //  si la connexion est déjà ouverte, il ne la refera pas (voir code dans DALConnection)
-            connection = DALConnection.connection;
-        }
+        
         public static ObservableCollection<EspeceDAO> selectEspeces()
         {
             ObservableCollection<EspeceDAO> l = new ObservableCollection<EspeceDAO>();
             string query = "SELECT * FROM Espece;";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             cmd.ExecuteNonQuery();
 
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -37,7 +32,7 @@ namespace Projet_CS.DAL
         public static EspeceDAO getEspece(int idEspece)
         {
             string query = "SELECT * FROM Espece WHERE idEspece=" + idEspece + ";";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
@@ -48,7 +43,7 @@ namespace Projet_CS.DAL
         public static void updateEspece(EspeceDAO e)
         {
             string query = "UPDATE Espece set nom=\"" + e.nomEspeceDAO + "\" where idEspece=" + e.idEspeceDAO + ";";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
@@ -56,14 +51,14 @@ namespace Projet_CS.DAL
         {
             int id = getMaxIdEspece() + 1;
             string query = "INSERT INTO Espece VALUES (\"" + id + "\",\"" + e.nomEspeceDAO + "\");";
-            MySqlCommand cmd2 = new MySqlCommand(query, connection);
+            MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
             cmd2.ExecuteNonQuery();
         }
         public static int getMaxIdEspece()
         {
-            string query = "SELECT MAX(idEspece) FROM Espece;";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            string query = "SELECT IFNULL(MAX(idEspece),0) FROM Espece;";
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             cmd.ExecuteNonQuery();
 
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -75,7 +70,7 @@ namespace Projet_CS.DAL
         public static void supprimerEspece(int id)
         {
             string query = "DELETE FROM Espece WHERE idEspece = \"" + id + "\";";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();
         }
