@@ -1,0 +1,57 @@
+﻿<Page x:Class="Projet_CS.Vue.AfficherEtude"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Projet_CS.Vue"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AfficherEtude">
+
+    <DockPanel>
+        <!--<TextBox AcceptsReturn="True" />-->
+        <StackPanel >
+
+            <TabControl Margin="0,0,0,0" Height="394">
+                <TabItem Header="TextBox">
+                    <Grid Name ="grigrid" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
+                        <StackPanel>
+
+                            <Label Content="nom"></Label>
+                            <TextBox Name="nomTextBox" Height="20" Margin="0,0,0.300,0" />
+                            <Label Content="date"></Label>
+                            <TextBox Name="dateTextBox" Height="20" Margin="0,0,0.300,0" />
+                            <Label Content="titre"></Label>
+                            <TextBox Name="titreTextBox" Height="20" Margin="0,0,0.300,0" />
+                            <Label Content="nombre total d'epèces rencontrées"></Label>
+                            <TextBox Name="nbTotalEspeceRencontreeTextBox" Height="20" Margin="0,0,0.300,0" />
+                            <Label Content="id équipe"></Label>
+                            <TextBox Name="idEquipeTextBox" Height="20" Margin="0,0,0.300,0" />
+                            <Button x:Name="btnAjt" Content="Ajouter" Click="ajouterButton" Height="35" Margin="0,5,206.333,0" HorizontalAlignment="Right" Width="427" RenderTransformOrigin="0.5,2.31" />
+
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+
+                <TabItem Header="DataGrid">
+                    <StackPanel>
+                        <Grid>
+                            <DataGrid Name="listeEtudes" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="81,30,0,148" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeEtudes_SelectionChanged" Width="633">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="id" Binding="{Binding idEtudeProperty, Mode=OneWay}" />
+                                    <DataGridTextColumn Header="nom" Binding="{Binding nomEtudeProperty, Mode=TwoWay}" />
+                                    <DataGridTextColumn Header="date" Binding="{Binding dateEtudeProperty, Mode=TwoWay}" />
+                                    <DataGridTextColumn Header="titre" Binding="{Binding titreEtudeProperty, Mode=TwoWay}" />
+                                    <DataGridTextColumn Header="nombre total d'epèces rencontrées" Binding="{Binding nbTotalEspeceRencontreeEtudeProperty, Mode=TwoWay}" />
+                                    <DataGridTextColumn Header="id équipe" Binding="{Binding idEquipeEtudeProperty, Mode=OneWay}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Button x:Name="btnSuppr" Content="Supprimer" Click="supprimerButton" BorderThickness="2,2,2,2" Margin="297,318,316,56"/>
+                        </Grid>
+
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+        </StackPanel>
+    </DockPanel>
+</Page>
