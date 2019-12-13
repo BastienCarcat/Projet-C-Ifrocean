@@ -39,12 +39,26 @@ namespace Projet_CS.Vue
         }
         private void ajouterButton(object sender, RoutedEventArgs e)
         {
-            PlageViewModel nouveau = new PlageViewModel(PlageDAL.getMaxIdPlage() + 1, myDataObject.nomPlageProperty, myDataObject.idCommunePlageProperty, myDataObject.nbEspecesDifferentesPlageProperty, myDataObject.surfacePlageProperty);
+            myDataObject = new PlageViewModel();
+            myDataObject.nomPlageProperty = nomTextBox.Text;
+
+            int defaultValueCommune = 1; //si la string est abhérente, le département par défaut est 1 -> mauvaisNumDépartement
+            int resultCommune;
+            myDataObject.communePlage = CommuneORM.getCommune(int.TryParse(idCommuneTextBox.Text, out resultCommune) ? resultCommune : defaultValueCommune);
+
+            int.TryParse(nbEspecesDifferentesTextBox.Text, out int resultNbEspeces);
+            myDataObject.nbEspecesDifferentesPlageProperty = resultNbEspeces;
+            
+            float resultSurface;
+            float defaultValueSurface = 0.0F;
+            myDataObject.surfacePlageProperty = float.TryParse(surfaceTextBox.Text, out resultSurface) ? resultSurface : defaultValueSurface;
+
+            PlageViewModel nouveau = new PlageViewModel(PlageDAL.getMaxIdPlage() + 1, myDataObject.nomPlageProperty, myDataObject.communePlage, myDataObject.nbEspecesDifferentesPlageProperty, myDataObject.surfacePlageProperty);
             lp.Add(nouveau);
             PlageDAO.insertPlage(nouveau);
             listePlages.Items.Refresh();
             compteur = lp.Count();
-            myDataObject = new PlageViewModel(PlageDAL.getMaxIdPlage() + 1, "", myDataObject.idCommunePlageProperty, myDataObject.nbEspecesDifferentesPlageProperty, myDataObject.surfacePlageProperty);
+            myDataObject = new PlageViewModel(PlageDAL.getMaxIdPlage() + 1, "", myDataObject.communePlage, myDataObject.nbEspecesDifferentesPlageProperty, myDataObject.surfacePlageProperty);
         }
         private void supprimerButton(object sender, RoutedEventArgs e)
         {

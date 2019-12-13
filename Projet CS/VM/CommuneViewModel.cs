@@ -36,7 +36,7 @@ namespace Projet_CS.VM
             }
         }
         public DepartementViewModel departementCommuneProperty
-        {
+        {   
             get { return departementCommune; }
         }
         public string departementCommuneNameProperty

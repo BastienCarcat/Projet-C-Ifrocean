@@ -37,8 +37,29 @@ namespace Projet_CS.Vue
             lp = UtilisateurORM.listeUtilisateurs();
             listeUtilisateurs.ItemsSource = lp;
         }
-        private void nomPrenomButton_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void ajouterButton(object sender, RoutedEventArgs e)
         {
+            myDataObject = new UtilisateurViewModel();
+
+            myDataObject.nomUtilisateurProperty = nomTextBox.Text;
+
+            myDataObject.prenomUtilisateurProperty = prenomTextBox.Text;
+
+            myDataObject.loginUtilisateurProperty = loginTextBox.Text;
+
+            myDataObject.passwordUtilisateurProperty = passwordTextBox.Text;
+
+            if (adminCheckBox.IsChecked ?? false)
+            {
+                 myDataObject.isAdminUtilisateurProperty = 1;
+            }
+            else
+            {
+                myDataObject.isAdminUtilisateurProperty = 0;
+            }
+
+
+
             UtilisateurViewModel nouveau = new UtilisateurViewModel(UtilisateurDAL.getMaxIdUtilisateur() + 1, myDataObject.nomUtilisateurProperty, myDataObject.prenomUtilisateurProperty, myDataObject.isAdminUtilisateurProperty, myDataObject.passwordUtilisateurProperty, myDataObject.loginUtilisateurProperty);
             lp.Add(nouveau);
             UtilisateurDAO.insertUtilisateur(nouveau);
@@ -46,7 +67,7 @@ namespace Projet_CS.Vue
             compteur = lp.Count();
             myDataObject = new UtilisateurViewModel(UtilisateurDAL.getMaxIdUtilisateur() + 1, "", "", myDataObject.isAdminUtilisateurProperty, "", "");
         }
-        private void supprimerButton_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void supprimerButton(object sender, RoutedEventArgs e)
         {
             UtilisateurViewModel toRemove = (UtilisateurViewModel)listeUtilisateurs.SelectedItem;
             lp.Remove(toRemove);

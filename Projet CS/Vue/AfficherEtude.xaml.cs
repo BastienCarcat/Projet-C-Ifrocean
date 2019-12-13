@@ -44,6 +44,9 @@ namespace Projet_CS.Vue
 
             DateTime defaultValDate = DateTime.Now;
             myDataObject.dateEtudeProperty = DateTime.TryParse(dateTextBox.Text, out DateTime resultDate) ? resultDate : defaultValDate;
+            
+            
+
 
             myDataObject.titreEtudeProperty = titreTextBox.Text;
 

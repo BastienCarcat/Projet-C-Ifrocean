@@ -38,19 +38,18 @@ namespace Projet_CS.DAL
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
-            reader.Read();
-            CommuneDAO user = new CommuneDAO(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
-            reader.Close();
+            reader.Read();            
+            CommuneDAO com;
             if (reader.HasRows)
             {
-                user = new CommuneDAO(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
+                com = new CommuneDAO(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
             }
             else
             {
-                int maxId = getMaxIdCommune() + 1;
-                user = new CommuneDAO(maxId, "", 1);
+                com = new CommuneDAO(1, "Mauvais Num Commune", 1);
             }
-            return user;
+            reader.Close();
+            return com;
         }
         public static void updateCommune(CommuneDAO u)
         {

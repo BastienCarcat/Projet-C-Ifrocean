@@ -42,7 +42,7 @@ namespace Projet_CS.DAO
 
         public static void updatePlage(PlageViewModel u)
         {
-            PlageDAL.updatePlage(new PlageDAO(u.idPlageProperty, u.nomPlageProperty, u.idCommunePlageProperty, u.nbEspecesDifferentesPlageProperty, u.surfacePlageProperty));
+            PlageDAL.updatePlage(new PlageDAO(u.idPlageProperty, u.nomPlageProperty, u.communePlageProperty.idCommuneProperty, u.nbEspecesDifferentesPlageProperty, u.surfacePlageProperty));
         }
 
         public static void supprimerPlage(int id)
@@ -52,7 +52,7 @@ namespace Projet_CS.DAO
 
         public static void insertPlage(PlageViewModel u)
         {
-            PlageDAL.insertPlage(new PlageDAO(u.idPlageProperty, u.nomPlageProperty, u.idCommunePlageProperty, u.nbEspecesDifferentesPlageProperty, u.surfacePlageProperty));
+            PlageDAL.insertPlage(new PlageDAO(u.idPlageProperty, u.nomPlageProperty, u.communePlageProperty.idCommuneProperty, u.nbEspecesDifferentesPlageProperty, u.surfacePlageProperty));
         }
     }
 }

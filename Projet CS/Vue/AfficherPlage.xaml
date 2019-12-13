@@ -39,7 +39,7 @@
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="id" Binding="{Binding idPlageProperty, Mode=OneWay}" />
                                     <DataGridTextColumn Header="nom" Binding="{Binding nomPlageProperty, Mode=TwoWay}" />
-                                    <DataGridTextColumn Header="idCommune" Binding="{Binding idCommunePlageProperty, Mode=TwoWay}" />
+                                    <DataGridTextColumn Header="idCommune" Binding="{Binding CommunePlageNomProperty, Mode=OneWay}" />
                                     <DataGridTextColumn Header="nombre d'espèces différentes" Binding="{Binding nbEspecesDifferentesPlageProperty, Mode=TwoWay}" />
                                     <DataGridTextColumn Header="surface" Binding="{Binding surfacePlageProperty, Mode=TwoWay}" />
                                 </DataGrid.Columns>

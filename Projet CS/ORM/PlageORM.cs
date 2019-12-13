@@ -14,7 +14,10 @@ namespace Projet_CS.ORM
         public static PlageViewModel getPlage(int idPlage)
         {
             PlageDAO pDAO = PlageDAO.getPlages(idPlage);
-            PlageViewModel u = new PlageViewModel(pDAO.idPlageDAO, pDAO.nomPlageDAO, pDAO.idCommuneDAO, pDAO.nbEspecesDifferentesDAO, pDAO.surfaceDAO);
+            int idCommune = pDAO.idCommuneDAO;
+
+            CommuneViewModel m = CommuneORM.getCommune(idCommune); // Plus propre que d'aller chercher la commune dans la DAO.
+            PlageViewModel u = new PlageViewModel(pDAO.idPlageDAO, pDAO.nomPlageDAO, m, pDAO.nbEspecesDifferentesDAO, pDAO.surfaceDAO);
             return u;
         }
 
@@ -24,7 +27,10 @@ namespace Projet_CS.ORM
             ObservableCollection<PlageViewModel> l = new ObservableCollection<PlageViewModel>();
             foreach (PlageDAO element in lDAO)
             {
-                PlageViewModel u = new PlageViewModel(element.idPlageDAO, element.nomPlageDAO, element.idCommuneDAO, element.nbEspecesDifferentesDAO, element.surfaceDAO);
+                int idCommune = element.idCommuneDAO;
+
+                CommuneViewModel m = CommuneORM.getCommune(idCommune); // Plus propre que d'aller chercher la commune dans la DAO.
+                PlageViewModel u = new PlageViewModel(element.idPlageDAO, element.nomPlageDAO, m, element.nbEspecesDifferentesDAO, element.surfaceDAO);
                 l.Add(u);
             }
             return l;

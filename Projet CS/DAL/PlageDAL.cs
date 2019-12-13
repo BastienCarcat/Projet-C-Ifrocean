@@ -39,9 +39,19 @@ namespace Projet_CS.DAL
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            PlageDAO user = new PlageDAO(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetFloat(4));
+            PlageDAO plage;
+            
+            if (reader.HasRows)
+            {
+                plage = new PlageDAO(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetFloat(4));
+            }
+            else
+            {
+                int maxId = getMaxIdPlage() + 1;
+                plage = new PlageDAO(maxId, "", 1, 0, 0);
+            }
             reader.Close();
-            return user;
+            return plage;
         }
         public static void updatePlage(PlageDAO u)
         {

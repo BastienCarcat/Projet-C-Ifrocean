@@ -13,17 +13,17 @@ namespace Projet_CS.VM
     {
         private int idPlage;
         private string nomPlage;        
-        public int idCommune;
+        public CommuneViewModel communePlage;
         public int nbEspecesDifferentes;
         public float surface;
 
         public PlageViewModel() { }
 
-        public PlageViewModel(int id, string nom, int idCommune, int nbEspecesDifferentes, float surface)
+        public PlageViewModel(int id, string nom, CommuneViewModel communePlage, int nbEspecesDifferentes, float surface)
         {
             this.idPlage = id;
             this.nomPlage = nom;
-            this.idCommune = idCommune;
+            this.communePlage = communePlage;
             this.nbEspecesDifferentes = nbEspecesDifferentes;
             this.surface = surface;         
         }
@@ -41,14 +41,13 @@ namespace Projet_CS.VM
                 OnPropertyChanged("nomPlageProperty");
             }
         }
-        public int idCommunePlageProperty
+        public CommuneViewModel communePlageProperty
         {
-            get { return idCommune; }
-            set
-            {
-                this.idCommune = value;
-                OnPropertyChanged("idCommuneProperty");
-            }
+            get { return communePlage; }
+        }
+        public string CommunePlageNomProperty
+        {
+            get { return communePlage.nomCommuneProperty; }
         }
         public int nbEspecesDifferentesPlageProperty
         {
