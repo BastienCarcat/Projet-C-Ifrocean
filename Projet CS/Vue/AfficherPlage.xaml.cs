@@ -36,10 +36,10 @@ namespace Projet_CS.Vue
             InitializeComponent();
             lp = PlageORM.listePlages();
             listePlages.ItemsSource = lp;
+            myDataObject = new PlageViewModel();
         }
         private void ajouterButton(object sender, RoutedEventArgs e)
-        {
-            myDataObject = new PlageViewModel();
+        {            
             myDataObject.nomPlageProperty = nomTextBox.Text;
 
             int defaultValueCommune = 1; //si la string est abhérente, le département par défaut est 1 -> mauvaisNumDépartement

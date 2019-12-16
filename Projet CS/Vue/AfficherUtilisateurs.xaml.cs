@@ -29,17 +29,17 @@ namespace Projet_CS.Vue
         int selectedUtilisateurId;
         UtilisateurViewModel myDataObject;
         UtilisateurDAL c = new UtilisateurDAL();
-        ObservableCollection<UtilisateurViewModel> lp;
-        int compteur = 0;
+        ObservableCollection<UtilisateurViewModel> lp;        
         public AfficherUtilisateurs()
         {
             InitializeComponent();
             lp = UtilisateurORM.listeUtilisateurs();
             listeUtilisateurs.ItemsSource = lp;
+            myDataObject = new UtilisateurViewModel();
         }
         private void ajouterButton(object sender, RoutedEventArgs e)
         {
-            myDataObject = new UtilisateurViewModel();
+            
 
             myDataObject.nomUtilisateurProperty = nomTextBox.Text;
 
@@ -63,8 +63,7 @@ namespace Projet_CS.Vue
             UtilisateurViewModel nouveau = new UtilisateurViewModel(UtilisateurDAL.getMaxIdUtilisateur() + 1, myDataObject.nomUtilisateurProperty, myDataObject.prenomUtilisateurProperty, myDataObject.isAdminUtilisateurProperty, myDataObject.passwordUtilisateurProperty, myDataObject.loginUtilisateurProperty);
             lp.Add(nouveau);
             UtilisateurDAO.insertUtilisateur(nouveau);
-            listeUtilisateurs.Items.Refresh();
-            compteur = lp.Count();
+            listeUtilisateurs.Items.Refresh();            
             myDataObject = new UtilisateurViewModel(UtilisateurDAL.getMaxIdUtilisateur() + 1, "", "", myDataObject.isAdminUtilisateurProperty, "", "");
         }
         private void supprimerButton(object sender, RoutedEventArgs e)

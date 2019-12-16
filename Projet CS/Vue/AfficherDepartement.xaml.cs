@@ -35,10 +35,10 @@ namespace Projet_CS.Vue
             InitializeComponent();
             le = DepartementORM.listeDepartements();
             listeDepartements.ItemsSource = le;
+            myDataObject = new DepartementViewModel();
         }
         private void ajouterButton(object sender, RoutedEventArgs e)
-        {
-            myDataObject = new DepartementViewModel();
+        {            
             myDataObject.nomDepartementProperty = nomTextBox.Text;
             DepartementViewModel nouveau = new DepartementViewModel(DepartementDAL.getMaxIdDepartement() + 1, myDataObject.nomDepartementProperty);
             le.Add(nouveau);

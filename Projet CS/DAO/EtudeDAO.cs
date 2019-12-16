@@ -25,8 +25,7 @@ namespace Projet_CS.DAO
             this.dateEtudeDAO = dateEtudeDAO;
             this.titreEtudeDAO = titreEtudeDAO;
             this.nbTotalEspeceRencontreeEtudeDAO = nbTotalEspeceRencontreeEtudeDAO;
-            this.idEquipeEtudeDAO = idEquipeEtudeDAO;
-            Thread.CurrentThread.CurrentCulture = CultureInfo.GetCultureInfo("en-US");
+            this.idEquipeEtudeDAO = idEquipeEtudeDAO;            
         }
         public static ObservableCollection<EtudeDAO> listeEtudes()
         {

@@ -58,6 +58,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DAL\ZoneDAL.cs" />
+    <Compile Include="DAO\ZoneDAO.cs" />
+    <Compile Include="ORM\ZoneORM.cs" />
+    <Compile Include="VM\ZoneViewModel.cs" />
+    <Compile Include="Vue\AfficherZone.xaml.cs">
+      <DependentUpon>AfficherZone.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vue\MenuDeSelection.xaml.cs">
       <DependentUpon>MenuDeSelection.xaml</DependentUpon>
     </Compile>
@@ -86,6 +93,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vue\AfficherUtilisateurs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\AfficherZone.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -36,10 +36,10 @@ namespace Projet_CS.Vue
             InitializeComponent();
             le = EquipeORM.listeEquipes();
             listeEquipes.ItemsSource = le;
+            myDataObject = new EquipeViewModel();
         }
         private void ajouterButton(object sender, RoutedEventArgs e)
-        {            
-            myDataObject = new EquipeViewModel();
+        {                        
             myDataObject.nomEquipeProperty = nomTextBox.Text;            
             int.TryParse(nombreMembresTextBox.Text, out int result);
             myDataObject.nombreMembresEquipeProperty = result;

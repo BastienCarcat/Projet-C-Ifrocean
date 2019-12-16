@@ -14,7 +14,13 @@ namespace Projet_CS.DAL
 {
     class EtudeDAL
     {
-       
+        public EtudeDAL(){
+            CultureInfo culture = (CultureInfo)CultureInfo.CurrentCulture.Clone();
+            culture.DateTimeFormat.ShortDatePattern = "yyyy-MM-dd";
+            culture.DateTimeFormat.LongTimePattern = "";
+            Thread.CurrentThread.CurrentCulture = culture;
+        }
+
         public static ObservableCollection<EtudeDAO> selectEtudes()
         {
             ObservableCollection<EtudeDAO> l = new ObservableCollection<EtudeDAO>();

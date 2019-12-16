@@ -35,10 +35,10 @@ namespace Projet_CS.Vue
             InitializeComponent();
             le = CommuneORM.listeCommunes();
             listeCommunes.ItemsSource = le;
+            myDataObject = new CommuneViewModel();
         }
         private void ajouterButton(object sender, RoutedEventArgs e)
-        {
-            myDataObject = new CommuneViewModel();
+        {           
             myDataObject.nomCommuneProperty = nomTextBox.Text;
             string DepartementIdToParse = idDepartementTextBox.Text;
             int defaultValue = 1; //si la string est abhérente, le département par défaut est 1 -> mauvaisNumDépartement

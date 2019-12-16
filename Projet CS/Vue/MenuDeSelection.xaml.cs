@@ -29,6 +29,11 @@ namespace Projet_CS.Vue
             Window pageCommune = Window.GetWindow(this);
             pageCommune.Content = new AfficherCommune();
         }
+        private void ouvrirZone(object sender, RoutedEventArgs e)
+        {
+            Window pageZone = Window.GetWindow(this);
+            pageZone.Content = new AfficherZone();
+        }
         private void ouvrirDepartement(object sender, RoutedEventArgs e)
         {
             Window pageDepartement = Window.GetWindow(this);

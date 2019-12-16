@@ -36,10 +36,10 @@ namespace Projet_CS.Vue
             InitializeComponent();
             le = EspeceORM.listeEspeces();
             listeEspeces.ItemsSource = le;
+            myDataObject = new EspeceViewModel();
         }
         private void ajouterButton(object sender, RoutedEventArgs e)
-        {
-            myDataObject = new EspeceViewModel();
+        {            
             myDataObject.nomEspeceProperty = nomTextBox.Text;            
             EspeceViewModel nouveau = new EspeceViewModel(EspeceDAL.getMaxIdEspece() + 1, myDataObject.nomEspeceProperty);
             le.Add(nouveau);

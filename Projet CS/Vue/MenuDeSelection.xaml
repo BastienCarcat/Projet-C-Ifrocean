@@ -16,5 +16,6 @@
         <Button x:Name="btnEtude" Content="Etudes" Click="ouvrirEtude" Margin="0,71,371,298" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" />
         <Button x:Name="btnPlage" Content="Plages" Click="ouvrirPlage" Margin="0,329,636,40" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" />
         <Button x:Name="btnUtilisateur" Content="Utilisateurs" Click="ouvrirUtilisateur" Margin="0,200,636,169" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" />
+        <Button x:Name="btnZone" Content="Zones" Click="ouvrirZone" Margin="0,201,371,168" HorizontalAlignment="Right" Width="100" RenderTransformOrigin="0.5,2.31" />
     </Grid>
 </Page>

@@ -17,7 +17,8 @@ using Projet_CS.VM;
 using Projet_CS.DAL;
 using Projet_CS.ORM;
 using Projet_CS.DAO;
-
+using System.Globalization;
+using System.Threading;
 
 namespace Projet_CS.Vue
 {
@@ -29,24 +30,25 @@ namespace Projet_CS.Vue
         int selectedEtudeId;
         EtudeViewModel myDataObject;
         EtudeDAL c = new EtudeDAL();
-        ObservableCollection<EtudeViewModel> lp;
-        int compteur = 0;
+        ObservableCollection<EtudeViewModel> lp;        
         public AfficherEtude()
         {
             InitializeComponent();
             lp = EtudeORM.listeEtudes();
             listeEtudes.ItemsSource = lp;
+            myDataObject = new EtudeViewModel();
+            CultureInfo culture = (CultureInfo)CultureInfo.CurrentCulture.Clone();
+            culture.DateTimeFormat.ShortDatePattern = "yyyy-MM-dd";
+            culture.DateTimeFormat.LongTimePattern = "";
+            Thread.CurrentThread.CurrentCulture = culture;
         }
         private void ajouterButton(object sender, RoutedEventArgs e)
         {
 
-            myDataObject = new EtudeViewModel();
-
-            DateTime defaultValDate = DateTime.Now;
-            myDataObject.dateEtudeProperty = DateTime.TryParse(dateTextBox.Text, out DateTime resultDate) ? resultDate : defaultValDate;
+            myDataObject.dateEtudeProperty = (DateTime)dateTextBox.SelectedDate;
+            //DateTime defaultValDate = DateTime.Now;
+            //myDataObject.dateEtudeProperty = DateTime.TryParse(, out DateTime resultDate) ? resultDate : defaultValDate;
             
-            
-
 
             myDataObject.titreEtudeProperty = titreTextBox.Text;
 
@@ -59,8 +61,7 @@ namespace Projet_CS.Vue
             EtudeViewModel nouveau = new EtudeViewModel(EtudeDAL.getMaxIdEtude() + 1, myDataObject.dateEtudeProperty, myDataObject.titreEtudeProperty, myDataObject.nbTotalEspeceRencontreeEtudeProperty, myDataObject.equipeEtudeProperty);
             lp.Add(nouveau);
             EtudeDAO.insertEtude(nouveau);
-            listeEtudes.Items.Refresh();
-            compteur = lp.Count();
+            listeEtudes.Items.Refresh();            
             myDataObject = new EtudeViewModel(EtudeDAL.getMaxIdEtude() + 1, myDataObject.dateEtudeProperty, "", myDataObject.nbTotalEspeceRencontreeEtudeProperty, myDataObject.equipeEtudeProperty);
         }
         private void supprimerButton(object sender, RoutedEventArgs e)
