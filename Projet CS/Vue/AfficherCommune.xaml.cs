@@ -69,9 +69,9 @@ namespace Projet_CS.Vue
             pageMenu.Content = new MenuDeSelection();
         }
 
-        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboBoxDepartement()
         {
-
+             
         }
     }
 }

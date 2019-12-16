@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\App.xaml
-10333101935
+12167900542
 
-471197952412
+49-246186467
 14-445397067
-Vue\AfficherCommune.xaml;Vue\AfficherDepartement.xaml;Vue\AfficherEquipe.xaml;Vue\AfficherEspece.xaml;Vue\AfficherEtude.xaml;Vue\AfficherPlage.xaml;Vue\AfficherUtilisateurs.xaml;Vue\AfficherZone.xaml;Vue\MainWindow.xaml;Vue\MenuDeSelection.xaml;
+Vue\AfficherCommune.xaml;Vue\AfficherDepartement.xaml;Vue\AfficherEquipe.xaml;Vue\AfficherEspece.xaml;Vue\AfficherEtude.xaml;Vue\AfficherPlage.xaml;Vue\AfficherUtilisateurs.xaml;Vue\AfficherZone.xaml;Vue\MainWindow.xaml;Vue\MenuDeSelection.xaml;Vue\PageConnexion.xaml;Vue\PageErreurConnexion.xaml;
 
 False
 

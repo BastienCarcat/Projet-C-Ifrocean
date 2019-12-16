@@ -17,6 +17,12 @@ namespace Projet_CS.ORM
             UtilisateurViewModel u = new UtilisateurViewModel(uDAO.idUtilisateurDAO, uDAO.nomUtilisateurDAO, uDAO.prenomUtilisateurDAO, uDAO.isAdminUtilisateurDAO, uDAO.passwordUtilisateurDAO, uDAO.loginUtilisateurDAO);
             return u;
         }
+        public static UtilisateurViewModel getUtilisateur(string loginUtilisateur)
+        {
+            UtilisateurDAO uDAO = UtilisateurDAO.getUtilisateurs(loginUtilisateur);
+            UtilisateurViewModel u = new UtilisateurViewModel(uDAO.idUtilisateurDAO, uDAO.nomUtilisateurDAO, uDAO.prenomUtilisateurDAO, uDAO.isAdminUtilisateurDAO, uDAO.passwordUtilisateurDAO, uDAO.loginUtilisateurDAO);
+            return u;
+        }
 
         public static ObservableCollection<UtilisateurViewModel> listeUtilisateurs()
         {

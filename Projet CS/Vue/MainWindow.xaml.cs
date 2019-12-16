@@ -29,7 +29,7 @@ namespace Projet_CS
         {
             DALConnection.OpenConnection();
             InitializeComponent();
-            this.Content = new MenuDeSelection();
+            this.Content = new PageConnexion();
         }
                
 

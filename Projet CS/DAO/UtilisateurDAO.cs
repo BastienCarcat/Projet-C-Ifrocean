@@ -38,6 +38,11 @@ namespace Projet_CS.DAO
             UtilisateurDAO u = UtilisateurDAL.getUtilisateur(idUtilisateur);
             return u;
         }
+        public static UtilisateurDAO getUtilisateurs(string loginUtilisateur)
+        {
+            UtilisateurDAO u = UtilisateurDAL.getUtilisateur(loginUtilisateur);
+            return u;
+        }
 
         public static void updateUtilisateur(UtilisateurViewModel u)
         {

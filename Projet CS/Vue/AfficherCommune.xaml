@@ -25,6 +25,8 @@
                             <TextBox Name="nomTextBox" Height="20" Margin="0,0,0.300,0" />
                             <Label Content="id Département"></Label>
                             <TextBox Name="idDepartementTextBox" Height="20" Margin="0,0,0.300,0" />
+                            <ComboBox x:Name="FontsCombo" Height="44" Width="296"
+          ItemsSource="{x:Bind departementCommuneNameProperty}" DisplayMemberPath="Source"/>
                         </StackPanel>
                         <Button x:Name="btnRetourForm" Content="Menu" Click="retourMenu" Height="35" Margin="412.667,135,139.7,130" Width="164" RenderTransformOrigin="0.5,2.31" Grid.Column="1"/>
                         <Button x:Name="btnAjt" Content="Ajouter" Click="ajouterButton" Height="35" Margin="32.667,135,519.7,130" Width="164" RenderTransformOrigin="0.5,2.31" Grid.Column="1"/>

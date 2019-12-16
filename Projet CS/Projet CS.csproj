@@ -68,6 +68,12 @@
     <Compile Include="Vue\MenuDeSelection.xaml.cs">
       <DependentUpon>MenuDeSelection.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vue\PageConnexion.xaml.cs">
+      <DependentUpon>PageConnexion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\PageErreurConnexion.xaml.cs">
+      <DependentUpon>PageErreurConnexion.xaml</DependentUpon>
+    </Compile>
     <Page Include="Vue\AfficherCommune.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -163,6 +169,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Vue\MenuDeSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\PageConnexion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\PageErreurConnexion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
