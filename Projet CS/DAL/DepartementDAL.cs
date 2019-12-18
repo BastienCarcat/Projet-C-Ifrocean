@@ -51,6 +51,18 @@ namespace Projet_CS.DAL
             reader.Close();
             return departement;
         }
+        //public static DepartementDAO getDepartementName()
+        //{
+        //  string query = "SELECT * FROM departement;";
+        //MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
+        //cmd.ExecuteNonQuery();
+        //MySqlDataReader reader = cmd.ExecuteReader();
+        //  while (reader.Read())
+        //{
+
+        //}
+        //      return departement;
+        //}
         public static void updateDepartement(DepartementDAO u)
         {
             string query = "UPDATE departement set nom=\"" + u.nomDepartementDAO + "\" where idDepartement=" + u.idDepartementDAO + ";";

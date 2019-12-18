@@ -23,8 +23,19 @@
                             <TextBox Name="titreTextBox" Height="20" Margin="0,0,0.300,0" />
                             <Label Content="nombre total d'epèces rencontrées"></Label>
                             <TextBox Name="nbTotalEspeceRencontreeTextBox" Height="20" Margin="0,0,0.300,0" />
-                            <Label Content="id équipe"></Label>
-                            <TextBox Name="idEquipeTextBox" Height="20" Margin="0,0,0.300,0" />
+                            <Label Content="Equipe"></Label>
+                            <ComboBox x:Name="idEquipeTextBox" ItemsSource="{Binding}" HorizontalAlignment="Left" 
+                                        Width="400"
+                                        BorderBrush="Black"                
+                                        Background="#FFA4A4A4" Height="24">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding nomEquipeProperty}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
 
                         </StackPanel>
                         <Button x:Name="btnRetourForm" Content="Menu" Click="retourMenu" Height="35" Margin="478,242,151.7,23" Width="164" RenderTransformOrigin="0.5,2.31"/>

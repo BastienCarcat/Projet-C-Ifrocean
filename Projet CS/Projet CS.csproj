@@ -58,15 +58,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DAL\UtilisateurHasEquipeDAL.cs" />
     <Compile Include="DAL\ZoneDAL.cs" />
+    <Compile Include="DAO\UtilisateurHasEquipeDAO.cs" />
     <Compile Include="DAO\ZoneDAO.cs" />
+    <Compile Include="ORM\UtilisateurHasEquipeORM.cs" />
     <Compile Include="ORM\ZoneORM.cs" />
+    <Compile Include="VM\UtilisateurHasEquipeViewModel.cs" />
     <Compile Include="VM\ZoneViewModel.cs" />
+    <Compile Include="Vue\AfficerChoixEquipe.xaml.cs">
+      <DependentUpon>AfficerChoixEquipe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\AfficherChoixEtude.xaml.cs">
+      <DependentUpon>AfficherChoixEtude.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vue\AfficherZone.xaml.cs">
       <DependentUpon>AfficherZone.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vue\MenuDeSelection.xaml.cs">
-      <DependentUpon>MenuDeSelection.xaml</DependentUpon>
+    <Compile Include="Vue\MenuDeSelectionAdmin.xaml.cs">
+      <DependentUpon>MenuDeSelectionAdmin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vue\PageConnexion.xaml.cs">
       <DependentUpon>PageConnexion.xaml</DependentUpon>
@@ -74,6 +84,14 @@
     <Compile Include="Vue\PageErreurConnexion.xaml.cs">
       <DependentUpon>PageErreurConnexion.xaml</DependentUpon>
     </Compile>
+    <Page Include="Vue\AfficerChoixEquipe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vue\AfficherChoixEtude.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vue\AfficherCommune.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -168,7 +186,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Vue\MenuDeSelection.xaml">
+    <Page Include="Vue\MenuDeSelectionAdmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

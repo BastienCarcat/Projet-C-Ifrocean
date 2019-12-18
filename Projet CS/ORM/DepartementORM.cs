@@ -17,7 +17,12 @@ namespace Projet_CS.ORM
             DepartementViewModel e = new DepartementViewModel(dDAO.idDepartementDAO, dDAO.nomDepartementDAO);
             return e;
         }
-
+        //public static DepartementViewModel getDepartementName()
+        //{
+        //    DepartementDAO dDAO = DepartementDAO.getDepartementName();
+        //    DepartementViewModel e = new DepartementViewModel(dDAO.idDepartementDAO, dDAO.nomDepartementDAO);
+        //    return e;
+        //}
         public static ObservableCollection<DepartementViewModel> listeDepartements()
         {
             ObservableCollection<DepartementDAO> lDAO = DepartementDAO.listeDepartements();

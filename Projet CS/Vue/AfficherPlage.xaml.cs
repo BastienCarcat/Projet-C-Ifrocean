@@ -70,7 +70,7 @@ namespace Projet_CS.Vue
         private void retourMenu(object sender, RoutedEventArgs e)
         {
             Window pageMenu = Window.GetWindow(this);
-            pageMenu.Content = new MenuDeSelection();
+            pageMenu.Content = new MenuDeSelectionAdmin();
         }
         private void listePlages_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

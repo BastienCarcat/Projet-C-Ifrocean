@@ -60,11 +60,15 @@ C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\o
 C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Projet CS.csproj.CopyComplete
 C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Projet CS.exe
 C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Projet CS.pdb
-C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\MenuDeSelection.g.cs
-C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\MenuDeSelection.baml
 C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\AfficherZone.g.cs
 C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\AfficherZone.baml
 C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\PageConnexion.g.cs
 C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\PageErreurConnexion.g.cs
 C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\PageConnexion.baml
 C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\PageErreurConnexion.baml
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\MenuDeSelectionAdmin.g.cs
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\MenuDeSelectionAdmin.baml
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\AfficerChoixEquipe.g.cs
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\AfficerChoixEquipe.baml
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\AfficherChoixEtude.g.cs
+C:\Users\basti\Desktop\pro\B2\Projet B2\projet dev\Projet-C-Ifrocean\Projet CS\obj\Debug\Vue\AfficherChoixEtude.baml

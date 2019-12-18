@@ -27,44 +27,49 @@ namespace Projet_CS.Vue
     public partial class AfficherUtilisateurs : Page
     {
         int selectedUtilisateurId;
-        UtilisateurViewModel myDataObject;
+        UtilisateurViewModel myDataObjectUtilisateur;
         UtilisateurDAL c = new UtilisateurDAL();
+        UtilisateurHasEquipeDAL ue = new UtilisateurHasEquipeDAL();
         ObservableCollection<UtilisateurViewModel> lp;        
+        ObservableCollection<UtilisateurHasEquipeViewModel> lue;        
         public AfficherUtilisateurs()
         {
             InitializeComponent();
             lp = UtilisateurORM.listeUtilisateurs();
+            lue = UtilisateurHasEquipeORM.listeUtilisateurHasEquipes();
             listeUtilisateurs.ItemsSource = lp;
-            myDataObject = new UtilisateurViewModel();
+            listeUtilisateursHasEquipe.ItemsSource = lue;
+            //EquipeComboBoxColumn.ItemsSource = lue;
+            myDataObjectUtilisateur = new UtilisateurViewModel();
         }
         private void ajouterButton(object sender, RoutedEventArgs e)
         {
             
 
-            myDataObject.nomUtilisateurProperty = nomTextBox.Text;
+            myDataObjectUtilisateur.nomUtilisateurProperty = nomTextBox.Text;
 
-            myDataObject.prenomUtilisateurProperty = prenomTextBox.Text;
+            myDataObjectUtilisateur.prenomUtilisateurProperty = prenomTextBox.Text;
 
-            myDataObject.loginUtilisateurProperty = loginTextBox.Text;
+            myDataObjectUtilisateur.loginUtilisateurProperty = loginTextBox.Text;
 
-            myDataObject.passwordUtilisateurProperty = passwordTextBox.Text;
+            myDataObjectUtilisateur.passwordUtilisateurProperty = passwordTextBox.Text;
 
             if (adminCheckBox.IsChecked ?? false)
             {
-                 myDataObject.isAdminUtilisateurProperty = 1;
+                 myDataObjectUtilisateur.isAdminUtilisateurProperty = 1;
             }
             else
             {
-                myDataObject.isAdminUtilisateurProperty = 0;
+                myDataObjectUtilisateur.isAdminUtilisateurProperty = 0;
             }
 
 
 
-            UtilisateurViewModel nouveau = new UtilisateurViewModel(UtilisateurDAL.getMaxIdUtilisateur() + 1, myDataObject.nomUtilisateurProperty, myDataObject.prenomUtilisateurProperty, myDataObject.isAdminUtilisateurProperty, myDataObject.passwordUtilisateurProperty, myDataObject.loginUtilisateurProperty);
+            UtilisateurViewModel nouveau = new UtilisateurViewModel(UtilisateurDAL.getMaxIdUtilisateur() + 1, myDataObjectUtilisateur.nomUtilisateurProperty, myDataObjectUtilisateur.prenomUtilisateurProperty, myDataObjectUtilisateur.isAdminUtilisateurProperty, myDataObjectUtilisateur.passwordUtilisateurProperty, myDataObjectUtilisateur.loginUtilisateurProperty);
             lp.Add(nouveau);
             UtilisateurDAO.insertUtilisateur(nouveau);
             listeUtilisateurs.Items.Refresh();            
-            myDataObject = new UtilisateurViewModel(UtilisateurDAL.getMaxIdUtilisateur() + 1, "", "", myDataObject.isAdminUtilisateurProperty, "", "");
+            myDataObjectUtilisateur = new UtilisateurViewModel(UtilisateurDAL.getMaxIdUtilisateur() + 1, "", "", myDataObjectUtilisateur.isAdminUtilisateurProperty, "", "");
         }
         private void supprimerButton(object sender, RoutedEventArgs e)
         {
@@ -76,7 +81,7 @@ namespace Projet_CS.Vue
         private void retourMenu(object sender, RoutedEventArgs e)
         {
             Window pageMenu = Window.GetWindow(this);
-            pageMenu.Content = new MenuDeSelection();
+            pageMenu.Content = new MenuDeSelectionAdmin();
         }
         private void listeUtilisateurs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

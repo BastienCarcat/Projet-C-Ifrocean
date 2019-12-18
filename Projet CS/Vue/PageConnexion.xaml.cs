@@ -37,7 +37,14 @@ namespace Projet_CS.Vue
 
             if(loginTextBox.Text == myDataObject.loginUtilisateurProperty && UtilisateurDAL.hash(passwordTextBox.Text) == myDataObject.passwordUtilisateurProperty)
             {
-                pageConnexion.Content = new MenuDeSelection();
+                if(myDataObject.isAdminUtilisateurProperty == 1)
+                {
+                    pageConnexion.Content = new MenuDeSelectionAdmin();
+                }
+                else if(myDataObject.isAdminUtilisateurProperty == 0)
+                {
+                    pageConnexion.Content = new AfficerChoixEquipe();                    
+                }
             }
             else
             {

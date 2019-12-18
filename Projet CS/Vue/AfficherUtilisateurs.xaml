@@ -9,9 +9,7 @@
       Title="AfficherUtilisateurs">
 
     <DockPanel>
-        <!--<TextBox AcceptsReturn="True" />-->
         <StackPanel >
-
             <TabControl Margin="0,0,0,0" Height="394">
                 <TabItem Header="TextBox">
                     <Grid Name ="grigrid" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
@@ -51,6 +49,24 @@
                         </Grid>
 
                     </StackPanel>
+                </TabItem>
+                <TabItem Header="Equipe">
+                    <Grid>
+                        <DataGrid Name="listeUtilisateursHasEquipe" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="81,30,0,148" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeUtilisateurs_SelectionChanged" Width="633">
+                            <!--ItemsSource="{Binding}"-->
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="id Utilisateur" Binding="{Binding Utilisateur_idUtilisateurHasEquipeProperty, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="id Equipe" Binding="{Binding Equipe_idUtilisateurHasEquipeProperty, Mode=TwoWay}" />
+                                <!--<DataGridComboBoxColumn  x:Name="EquipeComboBoxColumn" 
+                                                         ItemsSource="{Binding}"
+                                                         DisplayMemberPath="Equipe_idEquipe"
+                                                         />-->
+                                <!--IsReadOnly="True"-->
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Button x:Name="btnSuppr2" Content="Supprimer" Click="supprimerButton" Height="35" Margin="47,275,491,56"/>
+                        <Button x:Name="btnRetourData2" Content="Menu" Click="retourMenu" Height="35" Margin="0,275,80,56" HorizontalAlignment="Right" Width="222" RenderTransformOrigin="0.5,2.31" />
+                    </Grid>
                 </TabItem>
             </TabControl>
         </StackPanel>

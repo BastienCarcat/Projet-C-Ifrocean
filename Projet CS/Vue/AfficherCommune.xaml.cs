@@ -29,21 +29,26 @@ namespace Projet_CS.Vue
         int selectedCommuneId;
         CommuneViewModel myDataObject;
         CommuneDAL c = new CommuneDAL();
-        ObservableCollection<CommuneViewModel> le;        
+        DepartementDAL d = new DepartementDAL();
+        ObservableCollection<CommuneViewModel> le;
+        ObservableCollection<DepartementViewModel> ld;
         public AfficherCommune()
         {
             InitializeComponent();
             le = CommuneORM.listeCommunes();
+            ld = DepartementORM.listeDepartements();
             listeCommunes.ItemsSource = le;
+            idDepartementTextBox.ItemsSource = ld;
             myDataObject = new CommuneViewModel();
         }
         private void ajouterButton(object sender, RoutedEventArgs e)
-        {           
+        {
             myDataObject.nomCommuneProperty = nomTextBox.Text;
-            string DepartementIdToParse = idDepartementTextBox.Text;
-            int defaultValue = 1; //si la string est abhérente, le département par défaut est 1 -> mauvaisNumDépartement
-            int result;
-            myDataObject.departementCommune = DepartementORM.getDepartement(int.TryParse(DepartementIdToParse, out result) ? result : defaultValue);
+
+            //int DepartementIdToParse = idDepartementTextBox.SelectedIndex;
+            //int defaultValue = 1; //si la string est abhérente, le département par défaut est 1 -> mauvaisNumDépartement
+            //int result;
+            myDataObject.departementCommune = DepartementORM.getDepartement(idDepartementTextBox.SelectedIndex + 2);
             CommuneViewModel nouveau = new CommuneViewModel(CommuneDAL.getMaxIdCommune() + 1, myDataObject.nomCommuneProperty, myDataObject.departementCommuneProperty);
             le.Add(nouveau);
             CommuneDAO.insertCommune(nouveau);
@@ -66,12 +71,12 @@ namespace Projet_CS.Vue
         private void retourMenu(object sender, RoutedEventArgs e)
         {
             Window pageMenu = Window.GetWindow(this);
-            pageMenu.Content = new MenuDeSelection();
+            pageMenu.Content = new MenuDeSelectionAdmin();
         }
 
-        private void ComboBoxDepartement()
-        {
+        //private void ComboBoxDepartement()
+        //{
              
-        }
+        //}
     }
 }

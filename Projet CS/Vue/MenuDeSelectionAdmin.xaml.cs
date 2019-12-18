@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Projet_CS.Vue
 {
     /// <summary>
-    /// Logique d'interaction pour MenuDeSelection.xaml
+    /// Logique d'interaction pour MenuDeSelectionAdmin.xaml
     /// </summary>
-    public partial class MenuDeSelection : Page
+    public partial class MenuDeSelectionAdmin : Page
     {
-        public MenuDeSelection()
+        public MenuDeSelectionAdmin()
         {
             InitializeComponent();
         }

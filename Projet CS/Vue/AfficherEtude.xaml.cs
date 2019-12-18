@@ -30,12 +30,16 @@ namespace Projet_CS.Vue
         int selectedEtudeId;
         EtudeViewModel myDataObject;
         EtudeDAL c = new EtudeDAL();
-        ObservableCollection<EtudeViewModel> lp;        
+        ObservableCollection<EtudeViewModel> lp;
+        ObservableCollection<EquipeViewModel> le;
+        
         public AfficherEtude()
         {
             InitializeComponent();
-            lp = EtudeORM.listeEtudes();
+            lp = EtudeORM.listeEtudes();            
+            le = EquipeORM.listeEquipes();            
             listeEtudes.ItemsSource = lp;
+            idEquipeTextBox.ItemsSource = le;
             myDataObject = new EtudeViewModel();
             CultureInfo culture = (CultureInfo)CultureInfo.CurrentCulture.Clone();
             culture.DateTimeFormat.ShortDatePattern = "yyyy-MM-dd";
@@ -55,8 +59,8 @@ namespace Projet_CS.Vue
             int.TryParse(nbTotalEspeceRencontreeTextBox.Text, out int resultNbEspece);
             myDataObject.nbTotalEspeceRencontreeEtudeProperty = resultNbEspece;
 
-            int defaultValEquipe = 1; //si mauvaise valeur -> équipe 1 par default
-            myDataObject.equipeEtude = EquipeORM.getEquipe(int.TryParse(idEquipeTextBox.Text, out int resultEquipe) ? resultEquipe : defaultValEquipe);
+            //int defaultValEquipe = 1; //si mauvaise valeur -> équipe 1 par default
+            myDataObject.equipeEtude = EquipeORM.getEquipe(idEquipeTextBox.SelectedIndex + 1);
 
             EtudeViewModel nouveau = new EtudeViewModel(EtudeDAL.getMaxIdEtude() + 1, myDataObject.dateEtudeProperty, myDataObject.titreEtudeProperty, myDataObject.nbTotalEspeceRencontreeEtudeProperty, myDataObject.equipeEtudeProperty);
             lp.Add(nouveau);
@@ -75,7 +79,7 @@ namespace Projet_CS.Vue
         private void retourMenu(object sender, RoutedEventArgs e)
         {
             Window pageMenu = Window.GetWindow(this);
-            pageMenu.Content = new MenuDeSelection();
+            pageMenu.Content = new MenuDeSelectionAdmin();
         }
         private void listeEtudes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
