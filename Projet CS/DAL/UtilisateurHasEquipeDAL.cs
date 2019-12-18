@@ -63,7 +63,7 @@ namespace Projet_CS.DAL
         }
         public static void updateUtilisateurHasEquipe(UtilisateurHasEquipeDAO u)
         {            
-            string query = "UPDATE utilisateur_has_equipe SET Utilisateur_idUtilisateur =" + u.Utilisateur_idUtilisateurDAO + ", Equipe_idEquipe=" + u.Equipe_idEquipeDAO + "WHERE Utilisateur_idUtilisateur =" + u.Utilisateur_idUtilisateurDAO + "AND Equipe_idEquipe =" + u.Equipe_idEquipeDAO + ";";
+            string query = "UPDATE utilisateur_has_equipe SET Utilisateur_idUtilisateur =" + u.UtilisateurUpdate_idUtilisateurDAO + ", Equipe_idEquipe=" + u.EquipeUpdate_idEquipeDAO + " WHERE Utilisateur_idUtilisateur =" + u.Utilisateur_idUtilisateurDAO + " AND Equipe_idEquipe =" + u.Equipe_idEquipeDAO + ";";
             ///////////???
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
@@ -90,8 +90,8 @@ namespace Projet_CS.DAL
         //    return maxIdUtilisateurHasEquipe;
         //}
         public static void supprimerUtilisateurHasEquipe(int idUtilisateur, int idEquipe)
-        {
-            string query = "DELETE FROM utilisateur_has_equipe WHERE utilisateur_idUtilisateur = \"" + idUtilisateur + "\"AND Equipe_idEquipe = \"" + idEquipe + "\";";
+        {            
+            string query = "DELETE FROM utilisateur_has_equipe WHERE Utilisateur_idUtilisateur =" + idUtilisateur + " AND Equipe_idEquipe =" + idEquipe + ";";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
             cmd.ExecuteNonQuery();

@@ -50,9 +50,9 @@
 
                     </StackPanel>
                 </TabItem>
-                <TabItem Header="Equipe">
+                <TabItem Header="Equipes">
                     <Grid>
-                        <DataGrid Name="listeUtilisateursHasEquipe" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="81,30,0,148" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeUtilisateurs_SelectionChanged" Width="633">
+                        <DataGrid Name="listeUtilisateursHasEquipe" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="81,30,0,148" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeUtilisateursHasEquipe_SelectionChanged" Width="633">
                             <!--ItemsSource="{Binding}"-->
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="id Utilisateur" Binding="{Binding Utilisateur_idUtilisateurHasEquipeProperty, Mode=TwoWay}" />
@@ -64,8 +64,45 @@
                                 <!--IsReadOnly="True"-->
                             </DataGrid.Columns>
                         </DataGrid>
-                        <Button x:Name="btnSuppr2" Content="Supprimer" Click="supprimerButton" Height="35" Margin="47,275,491,56"/>
+                        <Button x:Name="btnSuppr2" Content="Supprimer" Click="supprimerButton2" Height="35" Margin="47,275,491,56"/>
                         <Button x:Name="btnRetourData2" Content="Menu" Click="retourMenu" Height="35" Margin="0,275,80,56" HorizontalAlignment="Right" Width="222" RenderTransformOrigin="0.5,2.31" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Ajouter Equipe">
+                    <Grid>
+                        <StackPanel>
+
+                            <Label Content="Utilisateur"></Label>
+                            <ComboBox x:Name="idUtilisateurComboBox" ItemsSource="{Binding}" HorizontalAlignment="Left" 
+                                        Width="400"
+                                        BorderBrush="Black"                
+                                        Background="#FFA4A4A4" Height="24">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding loginUtilisateurProperty}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <Label Content="Equipe"></Label>
+                            <ComboBox x:Name="idEquipeComboBox" ItemsSource="{Binding}" HorizontalAlignment="Left" 
+                                        Width="400"
+                                        BorderBrush="Black"                
+                                        Background="#FFA4A4A4" Height="24">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding nomEquipeProperty}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            
+
+                        </StackPanel>
+                        <Button x:Name="btnRetour3" Content="Menu" Click="retourMenu" Height="35" Margin="478,242,151.7,23" Width="164" RenderTransformOrigin="0.5,2.31"/>
+                        <Button x:Name="btnAjt2" Content="Ajouter" Click="ajouterButton" Height="35" Margin="125,242,504.7,23" Width="164" RenderTransformOrigin="0.5,2.31"/>
                     </Grid>
                 </TabItem>
             </TabControl>
