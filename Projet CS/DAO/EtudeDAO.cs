@@ -39,9 +39,9 @@ namespace Projet_CS.DAO
             return u;
         }
 
-        public static void updateEtude(EtudeViewModel u)
+        public static void updateEtude(EtudeDAO et)
         {
-            EtudeDAL.updateEtude(new EtudeDAO(u.idEtudeProperty, u.dateEtudeProperty, u.titreEtudeProperty, u.nbTotalEspeceRencontreeEtudeProperty, u.equipeEtude.idEquipeProperty));
+            EtudeDAL.updateEtude(et);
         }
 
         public static void supprimerEtude(int id)
@@ -49,9 +49,9 @@ namespace Projet_CS.DAO
             EtudeDAL.supprimerEtude(id);
         }
 
-        public static void insertEtude(EtudeViewModel u)
+        public static void insertEtude(EtudeDAO et)
         {
-            EtudeDAL.insertEtude(new EtudeDAO(u.idEtudeProperty, u.dateEtudeProperty, u.titreEtudeProperty, u.nbTotalEspeceRencontreeEtudeProperty, u.equipeEtude.idEquipeProperty));
+            EtudeDAL.insertEtude(et);
         }
     }
 }

@@ -133,7 +133,7 @@ namespace Projet_CS.VM
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(info));
-                ZoneDAO.updateZone(this);
+                ZoneORM.updateZone(this);
             }
         }
 

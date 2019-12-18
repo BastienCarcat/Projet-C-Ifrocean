@@ -75,7 +75,7 @@ namespace Projet_CS.VM
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(info));
-                PlageDAO.updatePlage(this);
+                PlageORM.updatePlage(this);
             }
         }
 

@@ -54,7 +54,7 @@ namespace Projet_CS.Vue
 
             ZoneViewModel nouveau = new ZoneViewModel(ZoneDAL.getMaxIdZone() + 1, myDataObject.nomZonePrelevementProperty, myDataObject.lat1Property, myDataObject.lat2Property, myDataObject.lat3Property, myDataObject.lat4Property, myDataObject.long1Property, myDataObject.long2Property, myDataObject.long3Property, myDataObject.long4Property);
             lp.Add(nouveau);
-            ZoneDAO.insertZone(nouveau);
+            ZoneORM.insertZone(nouveau);
             listeZones.Items.Refresh();
             
             //myDataObject = new ZoneViewModel(ZoneDAL.getMaxIdZone() + 1, "", "", myDataObject.isAdminZoneProperty, "", "");
@@ -64,7 +64,7 @@ namespace Projet_CS.Vue
             ZoneViewModel toRemove = (ZoneViewModel)listeZones.SelectedItem;
             lp.Remove(toRemove);
             listeZones.Items.Refresh();
-            ZoneDAO.supprimerZone(selectedZoneId);
+            ZoneORM.supprimerZone(selectedZoneId);
         }
         private void retourMenu(object sender, RoutedEventArgs e)
         {

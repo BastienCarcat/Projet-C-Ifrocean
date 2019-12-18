@@ -60,11 +60,11 @@ namespace Projet_CS.Vue
             myDataObject.nbTotalEspeceRencontreeEtudeProperty = resultNbEspece;
 
             //int defaultValEquipe = 1; //si mauvaise valeur -> équipe 1 par default
-            myDataObject.equipeEtude = EquipeORM.getEquipe(idEquipeTextBox.SelectedIndex + 1);
+            myDataObject.equipeEtude = (EquipeViewModel)idEquipeTextBox.SelectedItem;
 
             EtudeViewModel nouveau = new EtudeViewModel(EtudeDAL.getMaxIdEtude() + 1, myDataObject.dateEtudeProperty, myDataObject.titreEtudeProperty, myDataObject.nbTotalEspeceRencontreeEtudeProperty, myDataObject.equipeEtudeProperty);
             lp.Add(nouveau);
-            EtudeDAO.insertEtude(nouveau);
+            EtudeORM.insertEtude(nouveau);
             listeEtudes.Items.Refresh();            
             myDataObject = new EtudeViewModel(EtudeDAL.getMaxIdEtude() + 1, myDataObject.dateEtudeProperty, "", myDataObject.nbTotalEspeceRencontreeEtudeProperty, myDataObject.equipeEtudeProperty);
         }
@@ -73,7 +73,7 @@ namespace Projet_CS.Vue
             EtudeViewModel toRemove = (EtudeViewModel)listeEtudes.SelectedItem;
             lp.Remove(toRemove);
             listeEtudes.Items.Refresh();
-            EtudeDAO.supprimerEtude(selectedEtudeId);
+            EtudeORM.supprimerEtude(selectedEtudeId);
         }
 
         private void retourMenu(object sender, RoutedEventArgs e)

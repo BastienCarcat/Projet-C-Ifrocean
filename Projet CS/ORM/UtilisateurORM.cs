@@ -35,5 +35,19 @@ namespace Projet_CS.ORM
             }
             return l;
         }
+        public static void updateUtilisateur(UtilisateurViewModel p)
+        {
+            UtilisateurDAO.updateUtilisateur(new UtilisateurDAO(p.idUtilisateurProperty, p.nomUtilisateurProperty, p.prenomUtilisateurProperty, p.isAdminUtilisateurProperty, p.passwordUtilisateurProperty, p.loginUtilisateurProperty));
+        }
+
+        public static void supprimerUtilisateur(int id)
+        {
+            UtilisateurDAO.supprimerUtilisateur(id);
+        }
+
+        public static void insertUtilisateur(UtilisateurViewModel p)
+        {
+            UtilisateurDAO.insertUtilisateur(new UtilisateurDAO(p.idUtilisateurProperty, p.nomUtilisateurProperty, p.prenomUtilisateurProperty, p.isAdminUtilisateurProperty, p.passwordUtilisateurProperty, p.loginUtilisateurProperty));
+        }
     }
 }

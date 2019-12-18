@@ -38,20 +38,17 @@ namespace Projet_CS.Vue
             le = CommuneORM.listeCommunes();
             ld = DepartementORM.listeDepartements();
             listeCommunes.ItemsSource = le;
-            idDepartementTextBox.ItemsSource = ld;
+            listeDepartementsCombo.ItemsSource = ld;
             myDataObject = new CommuneViewModel();
         }
         private void ajouterButton(object sender, RoutedEventArgs e)
         {
             myDataObject.nomCommuneProperty = nomTextBox.Text;
-
-            //int DepartementIdToParse = idDepartementTextBox.SelectedIndex;
-            //int defaultValue = 1; //si la string est abhérente, le département par défaut est 1 -> mauvaisNumDépartement
-            //int result;
-            myDataObject.departementCommune = DepartementORM.getDepartement(idDepartementTextBox.SelectedIndex + 2);
+            
+            myDataObject.departementCommune = (DepartementViewModel)listeDepartementsCombo.SelectedItem;
             CommuneViewModel nouveau = new CommuneViewModel(CommuneDAL.getMaxIdCommune() + 1, myDataObject.nomCommuneProperty, myDataObject.departementCommuneProperty);
             le.Add(nouveau);
-            CommuneDAO.insertCommune(nouveau);
+            CommuneORM.insertCommune(nouveau);
             listeCommunes.Items.Refresh();                       
         }
         private void supprimerButton(object sender, RoutedEventArgs e)
@@ -59,7 +56,7 @@ namespace Projet_CS.Vue
             CommuneViewModel toRemove = (CommuneViewModel)listeCommunes.SelectedItem;
             le.Remove(toRemove);
             listeCommunes.Items.Refresh();
-            CommuneDAO.supprimerCommune(selectedCommuneId);
+            CommuneORM.supprimerCommune(selectedCommuneId);
         }
         private void listeCommunes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -73,10 +70,6 @@ namespace Projet_CS.Vue
             Window pageMenu = Window.GetWindow(this);
             pageMenu.Content = new MenuDeSelectionAdmin();
         }
-
-        //private void ComboBoxDepartement()
-        //{
-             
-        //}
+      
     }
 }

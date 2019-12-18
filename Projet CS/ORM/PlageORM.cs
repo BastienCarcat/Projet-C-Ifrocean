@@ -35,5 +35,19 @@ namespace Projet_CS.ORM
             }
             return l;
         }
+        public static void updatePlage(PlageViewModel p)
+        {
+            PlageDAO.updatePlage(new PlageDAO(p.idPlageProperty, p.nomPlageProperty, p.communePlage.idCommuneProperty, p.nbEspecesDifferentesPlageProperty, p.surfacePlageProperty));
+        }
+
+        public static void supprimerPlage(int id)
+        {
+            PlageDAO.supprimerPlage(id);
+        }
+
+        public static void insertPlage(PlageViewModel p)
+        {
+            PlageDAO.insertPlage(new PlageDAO(p.idPlageProperty, p.nomPlageProperty, p.communePlage.idCommuneProperty, p.nbEspecesDifferentesPlageProperty, p.surfacePlageProperty));
+        }
     }
 }

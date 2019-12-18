@@ -10,67 +10,43 @@ using Projet_CS.DAO;
 namespace Projet_CS.VM
 {
     public class UtilisateurHasEquipeViewModel : INotifyPropertyChanged
-    {
-        private int Utilisateur_idUtilisateur;
-        private int Equipe_idEquipe;        
-        private int EquipeUpdate_idEquipe;        
-        private int UtilisateurUpdate_idUtilisateur;        
+    {        
+        private UtilisateurViewModel idUtilisateur;
+        private EquipeViewModel idEquipe;
 
         public UtilisateurHasEquipeViewModel() { }
 
-        public UtilisateurHasEquipeViewModel(int idUtilisateur, int idEquipe)
+        public UtilisateurHasEquipeViewModel(UtilisateurViewModel idUtilisateur, EquipeViewModel idEquipe)
         {
-            this.Utilisateur_idUtilisateur = idUtilisateur;
-            this.Equipe_idEquipe = idEquipe;
+            this.idUtilisateur = idUtilisateur;
+            this.idEquipe = idEquipe;
         }
 
-        public UtilisateurHasEquipeViewModel(int idUtilisateur, int idEquipe, int idUtilisateurUpdate, int idEquipeUpdate)
+        public UtilisateurViewModel Utilisateur_UtilisateurHasEquipeProperty
         {
-            this.Utilisateur_idUtilisateur = idUtilisateur;
-            this.Equipe_idEquipe = idEquipe;
-            this.UtilisateurUpdate_idUtilisateur = idUtilisateurUpdate;
-            this.EquipeUpdate_idEquipe = idEquipeUpdate;
-        }
-
-        //public int idUtilisateurHasEquipeProperty
-        //{
-        //    get { return idUtilisateurHasEquipe; }
-        //}        
-        public int Utilisateur_idUtilisateurHasEquipeProperty
-        {
-            get { return Utilisateur_idUtilisateur; }
+            get { return idUtilisateur; }
             set
             {
-                this.Utilisateur_idUtilisateur = value;
-                OnPropertyChanged("Utilisateur_idUtilisateurHasEquipeProperty");
+                idUtilisateur = value;
+                OnPropertyChanged("Utilisateur_UtilisateurHasEquipeProperty");
             }
         }
-        public int Equipe_idUtilisateurHasEquipeProperty
+        public String UtilisateurName_UtilisateurHasEquipeProperty
         {
-            get { return Equipe_idEquipe; }
+            get { return idUtilisateur.loginUtilisateurProperty; }
+        }
+        public EquipeViewModel Equipe_UtilisateurHasEquipeProperty
+        {
+            get { return idEquipe; }
             set
             {
-                this.Equipe_idEquipe = value;
-                OnPropertyChanged("Equipe_idUtilisateurHasEquipeProperty");
+                idEquipe = value;
+                OnPropertyChanged("Equipe_UtilisateurHasEquipeProperty");
             }
         }
-        public int EquipeUpdate_idUtilisateurHasEquipeProperty
+        public String EquipeName_UtilisateurHasEquipeProperty
         {
-            get { return EquipeUpdate_idEquipe; }
-            set
-            {
-                this.EquipeUpdate_idEquipe = value;
-                OnPropertyChanged("EquipeUpdate_idUtilisateurHasEquipeProperty");
-            }
-        }
-        public int UtilisateurUpdate_idUtilisateurHasEquipeProperty
-        {
-            get { return UtilisateurUpdate_idUtilisateur; }
-            set
-            {
-                this.UtilisateurUpdate_idUtilisateur = value;
-                OnPropertyChanged("UtilisateurUpdate_idUtilisateurHasEquipeProperty");
-            }
+            get { return idEquipe.nomEquipeProperty; }
         }
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string info)

@@ -42,7 +42,7 @@ namespace Projet_CS.Vue
             myDataObject.nomDepartementProperty = nomTextBox.Text;
             DepartementViewModel nouveau = new DepartementViewModel(DepartementDAL.getMaxIdDepartement() + 1, myDataObject.nomDepartementProperty);
             le.Add(nouveau);
-            DepartementDAO.insertDepartement(nouveau);
+            DepartementORM.insertDepartement(nouveau);
             listeDepartements.Items.Refresh();            
         }
         private void supprimerButton(object sender, RoutedEventArgs e)
@@ -50,7 +50,7 @@ namespace Projet_CS.Vue
             DepartementViewModel toRemove = (DepartementViewModel)listeDepartements.SelectedItem;
             le.Remove(toRemove);
             listeDepartements.Items.Refresh();
-            DepartementDAO.supprimerDepartement(selectedDepartementId);
+            DepartementORM.supprimerDepartement(selectedDepartementId);
         }
         private void listeDepartements_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

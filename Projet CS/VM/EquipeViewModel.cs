@@ -1,4 +1,5 @@
 ﻿using Projet_CS.DAO;
+using Projet_CS.ORM;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,7 +54,7 @@ namespace Projet_CS.VM
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(info));
-                EquipeDAO.updateEquipe(this);
+                EquipeORM.updateEquipe(this);
             }
         }
         

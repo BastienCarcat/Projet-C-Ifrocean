@@ -41,12 +41,12 @@ namespace Projet_CS.Vue
         {
             InitializeComponent();
             lp = UtilisateurORM.listeUtilisateurs();
-            lue = UtilisateurHasEquipeORM.listeUtilisateurHasEquipes();
+            //lue = UtilisateurHasEquipeORM.listeUtilisateurHasEquipes();
             le = EquipeORM.listeEquipes();
             listeUtilisateurs.ItemsSource = lp;
-            listeUtilisateursHasEquipe.ItemsSource = lue;
-            idEquipeComboBox.ItemsSource = le;
-            idUtilisateurComboBox.ItemsSource = lp;
+            //listeUtilisateursHasEquipe.ItemsSource = lue;
+            EquipeComboBox.ItemsSource = le;
+            UtilisateurComboBox.ItemsSource = lp;
             //EquipeComboBoxColumn.ItemsSource = lue;
             myDataObjectUtilisateur = new UtilisateurViewModel();
             myDataObjectUtilisateurHasEquipe = new UtilisateurHasEquipeViewModel();
@@ -76,20 +76,22 @@ namespace Projet_CS.Vue
 
             UtilisateurViewModel nouveau = new UtilisateurViewModel(UtilisateurDAL.getMaxIdUtilisateur() + 1, myDataObjectUtilisateur.nomUtilisateurProperty, myDataObjectUtilisateur.prenomUtilisateurProperty, myDataObjectUtilisateur.isAdminUtilisateurProperty, myDataObjectUtilisateur.passwordUtilisateurProperty, myDataObjectUtilisateur.loginUtilisateurProperty);
             lp.Add(nouveau);
-            UtilisateurDAO.insertUtilisateur(nouveau);
+            UtilisateurORM.insertUtilisateur(nouveau);
             listeUtilisateurs.Items.Refresh();            
             myDataObjectUtilisateur = new UtilisateurViewModel(UtilisateurDAL.getMaxIdUtilisateur() + 1, "", "", myDataObjectUtilisateur.isAdminUtilisateurProperty, "", "");
         }
 
         private void ajouterButton2(object sender, RoutedEventArgs e)
         {                        
-            myDataObjectUtilisateurHasEquipe.Utilisateur_idUtilisateurHasEquipeProperty = UtilisateurORM.getUtilisateur(idUtilisateurComboBox.SelectedIndex);
-            myDataObjectUtilisateurHasEquipe.Equipe_idUtilisateurHasEquipeProperty = EquipeORM.getEquipe(idEquipeComboBox.SelectedIndex);
-            UtilisateurHasEquipeViewModel nouveau = new UtilisateurHasEquipeViewModel(myDataObjectUtilisateurHasEquipe.Equipe_idUtilisateurHasEquipeProperty, myDataObjectUtilisateurHasEquipe.Equipe_idUtilisateurHasEquipeProperty);
-            le.Add(nouveau);
-            UtilisateurHasEquipeDAO.insertUtilisateurHasEquipe(nouveau);
-            idEquipeComboBox.Items.Refresh();
-            idUtilisateurComboBox.Items.Refresh();
+            //myDataObjectUtilisateurHasEquipe.Utilisateur_idUtilisateurHasEquipeProperty = UtilisateurORM.getUtilisateur(idUtilisateurComboBox.SelectedIndex);
+            //myDataObjectUtilisateurHasEquipe.Equipe_idUtilisateurHasEquipeProperty = EquipeORM.getEquipe(idEquipeComboBox.SelectedIndex);
+
+
+            //UtilisateurHasEquipeViewModel nouveau = new UtilisateurHasEquipeViewModel(myDataObjectUtilisateurHasEquipe.Equipe_idUtilisateurHasEquipeProperty, myDataObjectUtilisateurHasEquipe.Equipe_idUtilisateurHasEquipeProperty);
+            //le.Add(nouveau);
+            //UtilisateurHasEquipeDAO.insertUtilisateurHasEquipe(nouveau);
+            EquipeComboBox.Items.Refresh();
+            UtilisateurComboBox.Items.Refresh();
         }
 
         private void supprimerButton(object sender, RoutedEventArgs e)
@@ -97,7 +99,7 @@ namespace Projet_CS.Vue
             UtilisateurViewModel toRemove = (UtilisateurViewModel)listeUtilisateurs.SelectedItem;
             lp.Remove(toRemove);
             listeUtilisateurs.Items.Refresh();
-            UtilisateurDAO.supprimerUtilisateur(selectedUtilisateurId);
+            UtilisateurORM.supprimerUtilisateur(selectedUtilisateurId);
         }
         private void supprimerButton2(object sender, RoutedEventArgs e)
         {
@@ -122,8 +124,8 @@ namespace Projet_CS.Vue
         {
             if ((listeUtilisateursHasEquipe.SelectedIndex < lue.Count) && (listeUtilisateursHasEquipe.SelectedIndex >= 0))
             {
-                idUtilisateur_selectedUtilisateurHasEquipe = (lue.ElementAt<UtilisateurHasEquipeViewModel>(listeUtilisateursHasEquipe.SelectedIndex)).Utilisateur_idUtilisateurHasEquipeProperty;
-                idEquipe_selectedUtilisateurHasEquipe = (lue.ElementAt<UtilisateurHasEquipeViewModel>(listeUtilisateursHasEquipe.SelectedIndex)).Equipe_idUtilisateurHasEquipeProperty;
+                //idUtilisateur_selectedUtilisateurHasEquipe = (lue.ElementAt<UtilisateurHasEquipeViewModel>(listeUtilisateursHasEquipe.SelectedIndex)).Utilisateur_idUtilisateurHasEquipeProperty;
+                //idEquipe_selectedUtilisateurHasEquipe = (lue.ElementAt<UtilisateurHasEquipeViewModel>(listeUtilisateursHasEquipe.SelectedIndex)).Equipe_idUtilisateurHasEquipeProperty;
             }
         }
     }

@@ -32,19 +32,19 @@ namespace Projet_CS.DAO
             return e;
         }
 
-        public static void updateEquipe(EquipeViewModel e)
+        public static void updateEquipe(EquipeDAO eq)
         {
-            EquipeDAL.updateEquipe(new EquipeDAO(e.idEquipeProperty, e.nomEquipeProperty, e.nombreMembresEquipeProperty));
+            EquipeDAL.updateEquipe(eq);
         }
 
-        public static void supprimerEquipe(int id)
+        public static void supprimerEquipe(int idEquipe)
         {
-            EquipeDAL.supprimerEquipe(id);
+            EquipeDAL.supprimerEquipe(idEquipe);
         }
 
-        public static void insertEquipe(EquipeViewModel e)
+        public static void insertEquipe(EquipeDAO eq)
         {
-            EquipeDAL.insertEquipe(new EquipeDAO(e.idEquipeProperty, e.nomEquipeProperty, e.nombreMembresEquipeProperty));
+            EquipeDAL.insertEquipe(eq);
         }
     }
 }

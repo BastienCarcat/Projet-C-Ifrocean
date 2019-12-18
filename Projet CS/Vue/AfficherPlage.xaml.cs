@@ -55,7 +55,7 @@ namespace Projet_CS.Vue
 
             PlageViewModel nouveau = new PlageViewModel(PlageDAL.getMaxIdPlage() + 1, myDataObject.nomPlageProperty, myDataObject.communePlage, myDataObject.nbEspecesDifferentesPlageProperty, myDataObject.surfacePlageProperty);
             lp.Add(nouveau);
-            PlageDAO.insertPlage(nouveau);
+            PlageORM.insertPlage(nouveau);
             listePlages.Items.Refresh();
             compteur = lp.Count();
             myDataObject = new PlageViewModel(PlageDAL.getMaxIdPlage() + 1, "", myDataObject.communePlage, myDataObject.nbEspecesDifferentesPlageProperty, myDataObject.surfacePlageProperty);
@@ -65,7 +65,7 @@ namespace Projet_CS.Vue
             PlageViewModel toRemove = (PlageViewModel)listePlages.SelectedItem;
             lp.Remove(toRemove);
             listePlages.Items.Refresh();
-            PlageDAO.supprimerPlage(selectedPlageId);
+            PlageORM.supprimerPlage(selectedPlageId);
         }
         private void retourMenu(object sender, RoutedEventArgs e)
         {

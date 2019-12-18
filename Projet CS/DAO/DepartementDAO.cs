@@ -31,24 +31,19 @@ namespace Projet_CS.DAO
             DepartementDAO e = DepartementDAL.getDepartement(idDepartement);
             return e;
         }
-        //public static DepartementDAO getDepartementsName()
-        //{
-        //    DepartementDAO e = DepartementDAL.getDepartementName();
-        //    return e;
-        //}
-        public static void updateDepartement(DepartementViewModel e)
+        public static void updateDepartement(DepartementDAO dp)
         {
-            DepartementDAL.updateDepartement(new DepartementDAO(e.idDepartementProperty, e.nomDepartementProperty));
+            DepartementDAL.updateDepartement(dp);
         }
 
-        public static void supprimerDepartement(int id)
+        public static void supprimerDepartement(int idDepartement)
         {
-            DepartementDAL.supprimerDepartement(id);
+            DepartementDAL.supprimerDepartement(idDepartement);
         }
 
-        public static void insertDepartement(DepartementViewModel e)
+        public static void insertDepartement(DepartementDAO dp)
         {
-            DepartementDAL.insertDepartement(new DepartementDAO(e.idDepartementProperty, e.nomDepartementProperty));
+            DepartementDAL.insertDepartement(dp);
         }
     }
 }

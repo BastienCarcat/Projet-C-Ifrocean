@@ -34,5 +34,20 @@ namespace Projet_CS.ORM
             }
             return l;
         }
+
+        public static void updateCommune(CommuneViewModel p)
+        {
+            CommuneDAO.updateCommune(new CommuneDAO(p.idCommuneProperty, p.nomCommuneProperty, p.departementCommune.idDepartementProperty));
+        }
+
+        public static void supprimerCommune(int id)
+        {
+            CommuneDAO.supprimerCommune(id);
+        }
+
+        public static void insertCommune(CommuneViewModel p)
+        {
+            CommuneDAO.insertCommune(new CommuneDAO(p.idCommuneProperty, p.nomCommuneProperty, p.departementCommune.idDepartementProperty));
+        }
     }
 }

@@ -29,5 +29,19 @@ namespace Projet_CS.ORM
             }
             return l;
         }
+        public static void updateEspece(EspeceViewModel p)
+        {
+            EspeceDAO.updateEspece(new EspeceDAO(p.idEspeceProperty, p.nomEspeceProperty));
+        }
+
+        public static void supprimerEspece(int id)
+        {
+            EspeceDAO.supprimerEspece(id);
+        }
+
+        public static void insertEspece(EspeceViewModel p)
+        {
+            EspeceDAO.insertEspece(new EspeceDAO(p.idEspeceProperty, p.nomEspeceProperty));
+        }
     }
 }

@@ -33,9 +33,13 @@ namespace Projet_CS.DAO
             return e;
         }
 
-        public static void updateCommune(CommuneViewModel e)
+        //public static void updateCommune(CommuneViewModel e)
+        //{
+        //    CommuneDAL.updateCommune(new CommuneDAO(e.idCommuneProperty, e.nomCommuneProperty, e.departementCommuneProperty.idDepartementProperty));
+        //}
+        public static void updateCommune(CommuneDAO e)
         {
-            CommuneDAL.updateCommune(new CommuneDAO(e.idCommuneProperty, e.nomCommuneProperty, e.departementCommuneProperty.idDepartementProperty));
+            CommuneDAL.updateCommune(e);
         }
 
         public static void supprimerCommune(int id)
@@ -43,9 +47,13 @@ namespace Projet_CS.DAO
             CommuneDAL.supprimerCommune(id);
         }
 
-        public static void insertCommune(CommuneViewModel e)
+        //public static void insertCommune(CommuneViewModel e)
+        //{
+        //    CommuneDAL.insertCommune(new CommuneDAO(e.idCommuneProperty, e.nomCommuneProperty, e.departementCommuneProperty.idDepartementProperty));
+        //}
+        public static void insertCommune(CommuneDAO e)
         {
-            CommuneDAL.insertCommune(new CommuneDAO(e.idCommuneProperty, e.nomCommuneProperty, e.departementCommuneProperty.idDepartementProperty));
+            CommuneDAL.insertCommune(e);
         }
     }
 }

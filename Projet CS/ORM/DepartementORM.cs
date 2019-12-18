@@ -16,13 +16,7 @@ namespace Projet_CS.ORM
             DepartementDAO dDAO = DepartementDAO.getDepartements(idDepartement);
             DepartementViewModel e = new DepartementViewModel(dDAO.idDepartementDAO, dDAO.nomDepartementDAO);
             return e;
-        }
-        //public static DepartementViewModel getDepartementName()
-        //{
-        //    DepartementDAO dDAO = DepartementDAO.getDepartementName();
-        //    DepartementViewModel e = new DepartementViewModel(dDAO.idDepartementDAO, dDAO.nomDepartementDAO);
-        //    return e;
-        //}
+        }        
         public static ObservableCollection<DepartementViewModel> listeDepartements()
         {
             ObservableCollection<DepartementDAO> lDAO = DepartementDAO.listeDepartements();
@@ -33,6 +27,20 @@ namespace Projet_CS.ORM
                 l.Add(e);
             }
             return l;
+        }
+        public static void updateDepartement(DepartementViewModel p)
+        {
+            DepartementDAO.updateDepartement(new DepartementDAO(p.idDepartementProperty, p.nomDepartementProperty));
+        }
+
+        public static void supprimerDepartement(int id)
+        {
+            DepartementDAO.supprimerDepartement(id);
+        }
+
+        public static void insertDepartement(DepartementViewModel p)
+        {
+            DepartementDAO.insertDepartement(new DepartementDAO(p.idDepartementProperty, p.nomDepartementProperty));
         }
     }
 }

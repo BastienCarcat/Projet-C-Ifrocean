@@ -29,5 +29,19 @@ namespace Projet_CS.ORM
             }
             return l;
         }
+        public static void updateEquipe(EquipeViewModel p)
+        {
+            EquipeDAO.updateEquipe(new EquipeDAO(p.idEquipeProperty, p.nomEquipeProperty, p.nombreMembresEquipeProperty));
+        }
+
+        public static void supprimerEquipe(int id)
+        {
+            EquipeDAO.supprimerEquipe(id);
+        }
+
+        public static void insertEquipe(EquipeViewModel p)
+        {
+            EquipeDAO.insertEquipe(new EquipeDAO(p.idEquipeProperty, p.nomEquipeProperty, p.nombreMembresEquipeProperty));
+        }
     }
 }

@@ -33,5 +33,19 @@ namespace Projet_CS.ORM
             }
             return l;
         }
+        public static void updateEtude(EtudeViewModel e)
+        {
+            EtudeDAO.updateEtude(new EtudeDAO(e.idEtudeProperty, e.dateEtudeProperty, e.titreEtudeProperty, e.nbTotalEspeceRencontreeEtudeProperty, e.equipeEtudeProperty.idEquipeProperty));
+        }
+
+        public static void supprimerEtude(int id)
+        {
+            EtudeDAO.supprimerEtude(id);
+        }
+
+        public static void insertEtude(EtudeViewModel e)
+        {
+            EtudeDAO.insertEtude(new EtudeDAO(e.idEtudeProperty, e.dateEtudeProperty, e.titreEtudeProperty, e.nbTotalEspeceRencontreeEtudeProperty, e.equipeEtudeProperty.idEquipeProperty));
+        }
     }
 }

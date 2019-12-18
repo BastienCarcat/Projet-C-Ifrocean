@@ -32,19 +32,19 @@ namespace Projet_CS.DAO
             return e;
         }
 
-        public static void updateEspece(EspeceViewModel e)
+        public static void updateEspece(EspeceDAO esp)
         {
-            EspeceDAL.updateEspece(new EspeceDAO(e.idEspeceProperty, e.nomEspeceProperty));
+            EspeceDAL.updateEspece(esp);
         }
 
-        public static void supprimerEspece(int id)
+        public static void supprimerEspece(int idEspece)
         {
-            EspeceDAL.supprimerEspece(id);
+            EspeceDAL.supprimerEspece(idEspece);
         }
 
-        public static void insertEspece(EspeceViewModel e)
+        public static void insertEspece(EspeceDAO esp)
         {
-            EspeceDAL.insertEspece(new EspeceDAO(e.idEspeceProperty, e.nomEspeceProperty));
+            EspeceDAL.insertEspece(esp);
         }
     }
 }

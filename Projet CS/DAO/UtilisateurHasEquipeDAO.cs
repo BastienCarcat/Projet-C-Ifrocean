@@ -14,8 +14,8 @@ namespace Projet_CS.DAO
     {
         public int Utilisateur_idUtilisateurDAO;       
         public int Equipe_idEquipeDAO;       
-        public int UtilisateurUpdate_idUtilisateurDAO;       
-        public int EquipeUpdate_idEquipeDAO;
+        //public int UtilisateurUpdate_idUtilisateurDAO;       
+        //public int EquipeUpdate_idEquipeDAO;
 
         public UtilisateurHasEquipeDAO(int idUtilisateur, int idEquipe)
         {
@@ -23,13 +23,13 @@ namespace Projet_CS.DAO
             this.Equipe_idEquipeDAO = idEquipe;            
         }
 
-        public UtilisateurHasEquipeDAO(int idUtilisateur, int idEquipe, int idUtilisateurUpdate, int idEquipeUpdate)
-        {
-            this.Utilisateur_idUtilisateurDAO = idUtilisateur;
-            this.Equipe_idEquipeDAO = idEquipe;
-            this.UtilisateurUpdate_idUtilisateurDAO = idUtilisateurUpdate;
-            this.EquipeUpdate_idEquipeDAO = idEquipeUpdate;
-        }
+        //public UtilisateurHasEquipeDAO(int idUtilisateur, int idEquipe, int idUtilisateurUpdate, int idEquipeUpdate)
+        //{
+        //    this.Utilisateur_idUtilisateurDAO = idUtilisateur;
+        //    this.Equipe_idEquipeDAO = idEquipe;
+        //    this.UtilisateurUpdate_idUtilisateurDAO = idUtilisateurUpdate;
+        //    this.EquipeUpdate_idEquipeDAO = idEquipeUpdate;
+        //}
 
         //////?
         public static ObservableCollection<UtilisateurHasEquipeDAO> listeUtilisateurHasEquipes()
@@ -51,7 +51,7 @@ namespace Projet_CS.DAO
 
         public static void updateUtilisateurHasEquipe(UtilisateurHasEquipeViewModel u)
         {
-            UtilisateurHasEquipeDAL.updateUtilisateurHasEquipe(new UtilisateurHasEquipeDAO(u.Utilisateur_idUtilisateurHasEquipeProperty, u.Equipe_idUtilisateurHasEquipeProperty, u.UtilisateurUpdate_idUtilisateurHasEquipeProperty, u.EquipeUpdate_idUtilisateurHasEquipeProperty));
+            //UtilisateurHasEquipeDAL.updateUtilisateurHasEquipe(new UtilisateurHasEquipeDAO(u.Utilisateur_UtilisateurHasEquipeProperty, u.Equipe_idUtilisateurHasEquipeProperty));
         }
 
         public static void supprimerUtilisateurHasEquipe(int idUtilisateur, int idEquipe)
@@ -61,7 +61,7 @@ namespace Projet_CS.DAO
 
         public static void insertUtilisateurHasEquipe(UtilisateurHasEquipeViewModel u)
         {
-            UtilisateurHasEquipeDAL.insertUtilisateurHasEquipe(new UtilisateurHasEquipeDAO(u.Utilisateur_idUtilisateurHasEquipeProperty, u.Equipe_idUtilisateurHasEquipeProperty));
+            //UtilisateurHasEquipeDAL.insertUtilisateurHasEquipe(new UtilisateurHasEquipeDAO(u.Utilisateur_idUtilisateurHasEquipeProperty, u.Equipe_idUtilisateurHasEquipeProperty));
         }
     }
 }

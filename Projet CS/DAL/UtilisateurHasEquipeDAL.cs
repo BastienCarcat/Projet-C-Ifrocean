@@ -63,7 +63,7 @@ namespace Projet_CS.DAL
         }
         public static void updateUtilisateurHasEquipe(UtilisateurHasEquipeDAO u)
         {            
-            string query = "UPDATE utilisateur_has_equipe SET Utilisateur_idUtilisateur =" + u.UtilisateurUpdate_idUtilisateurDAO + ", Equipe_idEquipe=" + u.EquipeUpdate_idEquipeDAO + " WHERE Utilisateur_idUtilisateur =" + u.Utilisateur_idUtilisateurDAO + " AND Equipe_idEquipe =" + u.Equipe_idEquipeDAO + ";";
+            string query = "UPDATE utilisateur_has_equipe SET Utilisateur_idUtilisateur =" + u.Utilisateur_idUtilisateurDAO + ", Equipe_idEquipe=" + u.Utilisateur_idUtilisateurDAO + " WHERE Utilisateur_idUtilisateur =" + u.Utilisateur_idUtilisateurDAO + " AND Equipe_idEquipe =" + u.Equipe_idEquipeDAO + ";";
             ///////////???
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);

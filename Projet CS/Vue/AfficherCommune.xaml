@@ -23,19 +23,12 @@
 
                             <Label Content="nom"></Label>
                             <TextBox Name="nomTextBox" Height="20" Margin="0,0,0.300,0" />
-                            <!--<TextBox Name="idDepartementTextBox" Height="20" Margin="0,0,0.300,0" />-->
                             <Label Content="Département"></Label>
-                            <ComboBox x:Name="idDepartementTextBox" ItemsSource="{Binding}" HorizontalAlignment="Left" 
-                                        Width="400"
-                                        BorderBrush="Black"                
-                                        Background="#FFA4A4A4" Height="24">
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel>
-                                            <TextBlock Text="{Binding nomDepartementProperty}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
+                            <ComboBox Name="listeDepartementsCombo"
+                                      DisplayMemberPath="nomDepartementProperty" 
+                                      ItemsSource="{Binding}" 
+                                      SelectedItem="{Binding idDepartementProperty}"
+                                     >
                             </ComboBox>
                         </StackPanel>
                             

@@ -45,7 +45,7 @@ namespace Projet_CS.Vue
             myDataObject.nombreMembresEquipeProperty = result;
             EquipeViewModel nouveau = new EquipeViewModel(EquipeDAL.getMaxIdEquipe() + 1, myDataObject.nomEquipeProperty, myDataObject.nombreMembresEquipeProperty);
             le.Add(nouveau);
-            EquipeDAO.insertEquipe(nouveau);
+            EquipeORM.insertEquipe(nouveau);
             listeEquipes.Items.Refresh();            
         }
 
@@ -54,7 +54,7 @@ namespace Projet_CS.Vue
             EquipeViewModel toRemove = (EquipeViewModel)listeEquipes.SelectedItem;
             le.Remove(toRemove);
             listeEquipes.Items.Refresh();
-            EquipeDAO.supprimerEquipe(selectedEquipeId);
+            EquipeORM.supprimerEquipe(selectedEquipeId);
         }
         private void listeEquipes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

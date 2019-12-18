@@ -44,9 +44,9 @@ namespace Projet_CS.DAO
             return u;
         }
 
-        public static void updateUtilisateur(UtilisateurViewModel u)
+        public static void updateUtilisateur(UtilisateurDAO u)
         {
-            UtilisateurDAL.updateUtilisateur(new UtilisateurDAO(u.idUtilisateurProperty, u.nomUtilisateurProperty, u.prenomUtilisateurProperty, u.isAdminUtilisateurProperty, u.passwordUtilisateurProperty, u.loginUtilisateurProperty));
+            UtilisateurDAL.updateUtilisateur(u);
         }
 
         public static void supprimerUtilisateur(int id)
@@ -54,9 +54,9 @@ namespace Projet_CS.DAO
             UtilisateurDAL.supprimerUtilisateur(id);
         }
 
-        public static void insertUtilisateur(UtilisateurViewModel u)
+        public static void insertUtilisateur(UtilisateurDAO u)
         {
-            UtilisateurDAL.insertUtilisateur(new UtilisateurDAO(u.idUtilisateurProperty, u.nomUtilisateurProperty, u.prenomUtilisateurProperty, u.isAdminUtilisateurProperty, u.passwordUtilisateurProperty, u.loginUtilisateurProperty));
+            UtilisateurDAL.insertUtilisateur(u);
         }
     }
 }

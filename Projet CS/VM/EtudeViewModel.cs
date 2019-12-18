@@ -75,7 +75,7 @@ namespace Projet_CS.VM
             if (handler != null)
             {
                 handler(this, new PropertyChangedEventArgs(info));
-                EtudeDAO.updateEtude(this);
+                EtudeORM.updateEtude(this);
             }
         }
 

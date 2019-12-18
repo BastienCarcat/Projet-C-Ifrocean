@@ -29,5 +29,19 @@ namespace Projet_CS.ORM
             }
             return l;
         }
+        public static void updateZone(ZoneViewModel zp)
+        {
+            ZoneDAO.updateZone(new ZoneDAO(zp.idZonePrelevementProperty, zp.nomZonePrelevementProperty, zp.lat1Property, zp.lat2Property, zp.lat3Property, zp.lat4Property, zp.long1Property, zp.long2Property, zp.long3Property, zp.long4Property));
+        }
+
+        public static void supprimerZone(int id)
+        {
+            ZoneDAO.supprimerZone(id);
+        }
+
+        public static void insertZone(ZoneViewModel zp)
+        {
+            ZoneDAO.insertZone(new ZoneDAO(zp.idZonePrelevementProperty, zp.nomZonePrelevementProperty, zp.lat1Property, zp.lat2Property, zp.lat3Property, zp.lat4Property, zp.long1Property, zp.long2Property, zp.long3Property, zp.long4Property));
+        }
     }
 }

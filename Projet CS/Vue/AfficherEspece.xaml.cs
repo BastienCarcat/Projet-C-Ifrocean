@@ -43,7 +43,7 @@ namespace Projet_CS.Vue
             myDataObject.nomEspeceProperty = nomTextBox.Text;            
             EspeceViewModel nouveau = new EspeceViewModel(EspeceDAL.getMaxIdEspece() + 1, myDataObject.nomEspeceProperty);
             le.Add(nouveau);
-            EspeceDAO.insertEspece(nouveau);
+            EspeceORM.insertEspece(nouveau);
             listeEspeces.Items.Refresh();
             compteur = le.Count();
             myDataObject = new EspeceViewModel(EspeceDAL.getMaxIdEspece() + 1, "");
@@ -53,7 +53,7 @@ namespace Projet_CS.Vue
             EspeceViewModel toRemove = (EspeceViewModel)listeEspeces.SelectedItem;
             le.Remove(toRemove);
             listeEspeces.Items.Refresh();
-            EspeceDAO.supprimerEspece(selectedEspeceId);
+            EspeceORM.supprimerEspece(selectedEspeceId);
         }
 
         private void retourMenu(object sender, RoutedEventArgs e)
