@@ -13,31 +13,41 @@
         <StackPanel >
 
             <TabControl Margin="0,0,0,0" Height="394">
-                <TabItem Header="TextBox">
+                <TabItem Header="Ajouter">
                     <Grid Name ="grigrid" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
                         <StackPanel>
-                            
-                            <Label Content="date    "></Label>
-                            <DatePicker Name="dateTextBox" Height="20" Margin="0,0,0.300,0" />
-                            <Label Content="titre"></Label>
-                            <TextBox Name="titreTextBox" Height="20" Margin="0,0,0.300,0" />
-                            <Label Content="nombre total d'epèces rencontrées"></Label>
-                            <TextBox Name="nbTotalEspeceRencontreeTextBox" Height="20" Margin="0,0,0.300,0" />
-                            <Label Content="Equipe"></Label>
-                            <ComboBox Name="idEquipeTextBox"
-                                      DisplayMemberPath="nomEquipeProperty" 
-                                      ItemsSource="{Binding}" 
-                                      SelectedItem="{Binding idEquipeProperty}"
-                                     >
-                            </ComboBox>
-
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel>
+                                    <Label Content="titre"></Label>
+                                    <TextBox Name="titreTextBox" Width="380" Height="20" Margin="5,0,20.300,0" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="nombre total d'epèces rencontrées"></Label>
+                                    <TextBox Name="nbTotalEspeceRencontreeTextBox" Height="20" Width="380" Margin="0,0,0.300,0" />
+                                </StackPanel>
+                            </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel>
+                                    <Label Content="date"></Label>
+                                    <DatePicker Name="dateTextBox" Height="20" Width="380" Margin="5,0,20.300,0" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="Equipe"></Label>
+                                    <ComboBox Name="idEquipeTextBox"
+                                              DisplayMemberPath="nomEquipeProperty" 
+                                              ItemsSource="{Binding}" 
+                                              SelectedItem="{Binding idEquipeProperty}"
+                                              Width="380">
+                                    </ComboBox>
+                                </StackPanel>
+                            </StackPanel>
                         </StackPanel>
                         <Button x:Name="btnRetourForm" Content="Menu" Click="retourMenu" Height="35" Margin="478,242,151.7,23" Width="164" RenderTransformOrigin="0.5,2.31"/>
                         <Button x:Name="btnAjt" Content="Ajouter" Click="ajouterButton" Height="35" Margin="125,242,504.7,23" Width="164" RenderTransformOrigin="0.5,2.31"/>
                     </Grid>
                 </TabItem>
 
-                <TabItem Header="DataGrid">
+                <TabItem Header="Etudes">
                     <StackPanel>
                         <Grid>
                             <DataGrid Name="listeEtudes" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="81,30,0,148" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeEtudes_SelectionChanged" Width="633">
@@ -46,11 +56,11 @@
                                     <DataGridTextColumn Header="date" Binding="{Binding dateEtudeProperty, Mode=TwoWay}" />
                                     <DataGridTextColumn Header="titre" Binding="{Binding titreEtudeProperty, Mode=TwoWay}" />
                                     <DataGridTextColumn Header="nombre total d'epèces rencontrées" Binding="{Binding nbTotalEspeceRencontreeEtudeProperty, Mode=TwoWay}" />
-                                    <DataGridTextColumn Header="id équipe" Binding="{Binding equipeEtudeNameProperty, Mode=OneWay}" />
+                                    <DataGridTextColumn Header="équipe" Binding="{Binding equipeEtudeNameProperty, Mode=OneWay}" />
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <Button x:Name="btnSuppr" Content="Supprimer" Click="supprimerButton" Margin="47.334,277,490.999,82" Grid.Column="2"/>
-                            <Button x:Name="btnRetourData" Content="Menu" Click="retourMenu" Height="35" Margin="0,277,79.999,82" HorizontalAlignment="Right" Width="222" RenderTransformOrigin="0.5,2.31" Grid.Column="2" />
+                            <Button x:Name="btnSuppr" Content="Supprimer" Click="supprimerButton" Margin="81,277,463,82" Width="250"/>
+                            <Button x:Name="btnRetourData" Content="Menu" Click="retourMenu" Height="35" Margin="0,277,79.999,82" HorizontalAlignment="Right" Width="250" RenderTransformOrigin="0.5,2.31" Grid.Column="2" />
                         </Grid>
 
                     </StackPanel>

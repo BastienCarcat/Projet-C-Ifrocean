@@ -11,19 +11,30 @@
     <DockPanel>
         <StackPanel >
             <TabControl Margin="0,0,0,0" Height="394">
-                <TabItem Header="TextBox">
+                <TabItem Header="Ajouter un utilisateur">
                     <Grid Name ="grigrid" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
                         <StackPanel>
-
-                            <Label Content="nom"></Label>
-                            <TextBox Name="nomTextBox" Height="20" Margin="0,0,0.300,0" />
-                            <Label Content="Prenom"></Label>
-                            <TextBox Name="prenomTextBox" Height="20" Margin="0,0,0.300,0" />
-                            <Label Content="login"></Label>
-                            <TextBox Name="loginTextBox" Height="20" Margin="0,0,0.300,0" />
-                            <Label Content="mot de passe"></Label>
-                            <TextBox Name="passwordTextBox" Height="20" Margin="0,0,0.300,0" />
-                            <CheckBox Name="adminCheckBox" Content="admin ?"/>
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel>
+                                    <Label Content="nom"></Label>
+                                    <TextBox Name="nomTextBox" Height="20" Width="380" Margin="5,0,20.300,0" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="Prenom"></Label>
+                                    <TextBox Name="prenomTextBox" Height="20" Width="380" Margin="0,0,0.300,0" />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel>
+                                    <Label Content="login"></Label>
+                                    <TextBox Name="loginTextBox" Height="20" Width="380" Margin="5,0,20.300,0" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="mot de passe"></Label>
+                                    <TextBox Name="passwordTextBox" Height="20" Width="380" Margin="0,0,0.300,0" />
+                                </StackPanel>
+                            </StackPanel>
+                            <CheckBox Name="adminCheckBox" Content="Administrateur" Margin="5,20,0.300,0"/>
 
                         </StackPanel>
                         <Button x:Name="btnRetourForm" Content="Menu" Click="retourMenu" Height="35" Margin="478,242,151.7,23" Width="164" RenderTransformOrigin="0.5,2.31"/>
@@ -31,7 +42,7 @@
                     </Grid>
                 </TabItem>
 
-                <TabItem Header="DataGrid">
+                <TabItem Header="Utilisateurs">
                     <StackPanel>
                         <Grid>
                             <DataGrid Name="listeUtilisateurs" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="81,30,0,148" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeUtilisateurs_SelectionChanged" Width="633">
@@ -44,8 +55,8 @@
                                     <DataGridTextColumn Header="admin" Binding="{Binding isAdminUtilisateurProperty, Mode=TwoWay}" />
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <Button x:Name="btnSuppr" Content="Supprimer" Click="supprimerButton" Margin="47.334,277,490.999,82" Grid.Column="2"/>
-                            <Button x:Name="btnRetourData" Content="Menu" Click="retourMenu" Height="35" Margin="0,277,79.999,82" HorizontalAlignment="Right" Width="222" RenderTransformOrigin="0.5,2.31" Grid.Column="2" />
+                            <Button x:Name="btnSuppr" Content="Supprimer" Click="supprimerButton" Margin="81,277,463,82" Width="250"/>
+                            <Button x:Name="btnRetourData" Content="Menu" Click="retourMenu" Height="35" Margin="0,277,79.999,82" HorizontalAlignment="Right" Width="250" RenderTransformOrigin="0.5,2.31" Grid.Column="2" />
                         </Grid>
 
                     </StackPanel>
@@ -54,9 +65,9 @@
                     <Grid>
                         <DataGrid Name="listeUtilisateursHasEquipe" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="81,30,0,148" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeUtilisateursHasEquipe_SelectionChanged" Width="633">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="id Utilisateur" Binding="{Binding UtilisateurName_UtilisateurHasEquipeProperty, Mode= OneWay}" />
-                                <DataGridTextColumn Header="id Equipe" Binding="{Binding EquipeName_UtilisateurHasEquipeProperty, Mode=OneWay}" />
-                                
+                                <DataGridTextColumn Header="Utilisateur" Binding="{Binding UtilisateurName_UtilisateurHasEquipeProperty, Mode= OneWay}" />
+                                <DataGridTextColumn Header="Equipe" Binding="{Binding EquipeName_UtilisateurHasEquipeProperty, Mode=OneWay}" />
+
                                 <!--essaie pour faire le update-->
                                 <!--<DataGridComboBoxColumn  x:Name="EquipeComboBoxColumn" 
                                                          DisplayMemberPath="nomEquipeProperty"
@@ -66,29 +77,32 @@
                                                          Header="Equipe"/>-->
                             </DataGrid.Columns>
                         </DataGrid>
-                        <Button x:Name="btnSuppr2" Content="Supprimer" Click="supprimerButton2" Height="35" Margin="47,275,491,56"/>
-                        <Button x:Name="btnRetourData2" Content="Menu" Click="retourMenu" Height="35" Margin="0,275,80,56" HorizontalAlignment="Right" Width="222" RenderTransformOrigin="0.5,2.31" />
+                        <Button x:Name="btnSuppr2" Content="Supprimer" Click="supprimerButton2" Width="250" Height="35" Margin="81,275,463,56"/>
+                        <Button x:Name="btnRetourData2" Content="Menu" Click="retourMenu" Height="35" Margin="0,275,80,56" HorizontalAlignment="Right" Width="250" RenderTransformOrigin="0.5,2.31" />
                     </Grid>
                 </TabItem>
-                <TabItem Header="Ajouter Equipe">
+                <TabItem Header="Mettre dans l'équipe">
                     <Grid>
-                        <StackPanel>
-
-                            <Label Content="Utilisateur"></Label>
-                            <ComboBox Name="UtilisateurComboBox"
-                                      DisplayMemberPath="loginUtilisateurProperty" 
-                                      ItemsSource="{Binding}" 
-                                      SelectedItem="{Binding idUtilisateurProperty}"
-                                     >
-                            </ComboBox>
-                            <Label Content="Equipe"></Label>
-                            <ComboBox Name="EquipeComboBox"
-                                      DisplayMemberPath="nomEquipeProperty" 
-                                      ItemsSource="{Binding}" 
-                                      SelectedItem="{Binding idEquipeProperty}"
-                                     >
-                            </ComboBox>
-                            
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel>
+                                <Label Content="Utilisateur"></Label>
+                                <ComboBox Name="UtilisateurComboBox"
+                                          DisplayMemberPath="loginUtilisateurProperty" 
+                                          ItemsSource="{Binding}" 
+                                          SelectedItem="{Binding idUtilisateurProperty}"
+                                          Width="380"
+                                          Margin="5,0,20.300,0">
+                                </ComboBox>
+                            </StackPanel>
+                            <StackPanel>
+                                <Label Content="Equipe"></Label>
+                                <ComboBox Name="EquipeComboBox"
+                                          DisplayMemberPath="nomEquipeProperty" 
+                                          ItemsSource="{Binding}" 
+                                          SelectedItem="{Binding idEquipeProperty}"
+                                          Width="380">
+                                </ComboBox>
+                            </StackPanel>
 
                         </StackPanel>
                         <Button x:Name="btnRetour3" Content="Menu" Click="retourMenu" Height="35" Margin="478,242,151.7,23" Width="164" RenderTransformOrigin="0.5,2.31"/>

@@ -13,7 +13,7 @@
         <StackPanel >
 
             <TabControl Margin="0,0,0,0" Height="394">
-                <TabItem Header="TextBox">
+                <TabItem Header="Ajouter">
                     <Grid Name ="grigrid" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
                         <StackPanel>
 
@@ -25,7 +25,7 @@
                     </Grid>
                 </TabItem>
 
-                <TabItem Header="DataGrid">
+                <TabItem Header="Departements">
                     <StackPanel>
                         <Grid>
                             <DataGrid Name="listeDepartements" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="81,30,0,148" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeDepartements_SelectionChanged" Width="633">
@@ -34,8 +34,8 @@
                                     <DataGridTextColumn Header="nom" Binding="{Binding nomDepartementProperty, Mode=TwoWay}" />
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <Button x:Name="btnSuppr" Content="Supprimer" Click="supprimerButton" Margin="47.334,277,490.999,82" Grid.Column="2"/>
-                            <Button x:Name="btnRetourData" Content="Menu" Click="retourMenu" Height="35" Margin="0,277,79.999,82" HorizontalAlignment="Right" Width="222" RenderTransformOrigin="0.5,2.31" Grid.Column="2" />
+                            <Button x:Name="btnSuppr" Content="Supprimer" Click="supprimerButton" Margin="81,277,463,82" Width="250"/>
+                            <Button x:Name="btnRetourData" Content="Menu" Click="retourMenu" Height="35" Margin="0,277,79.999,82" HorizontalAlignment="Right" Width="250" RenderTransformOrigin="0.5,2.31" Grid.Column="2" />
                         </Grid>
 
                     </StackPanel>

@@ -10,26 +10,29 @@
 
     <DockPanel>
         <!--<TextBox AcceptsReturn="True" />-->
-        <StackPanel >
+        <StackPanel>
 
             <TabControl Margin="0,0,0,0" Height="394">
-                <TabItem Header="TextBox">
+                <TabItem Header="Ajouter">
                     <Grid Name ="grigrid" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="77*"/>
                             <ColumnDefinition Width="716*"/>
                         </Grid.ColumnDefinitions>
-                        <StackPanel Grid.ColumnSpan="2" Margin="0,0,-0.3,0">
-
-                            <Label Content="nom"></Label>
-                            <TextBox Name="nomTextBox" Height="20" Margin="0,0,0.300,0" />
-                            <Label Content="Département"></Label>
-                            <ComboBox Name="listeDepartementsCombo"
-                                      DisplayMemberPath="nomDepartementProperty" 
-                                      ItemsSource="{Binding}" 
-                                      SelectedItem="{Binding idDepartementProperty}"
-                                     >
-                            </ComboBox>
+                        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Margin="0,0,-0.3,0">
+                            <StackPanel>
+                                <Label Content="nom"></Label>
+                                <TextBox Name="nomTextBox" Height="20" Width="380" Margin="5,0,20.300,0" />
+                            </StackPanel>
+                            <StackPanel>
+                                <Label Content="Département"></Label>
+                                <ComboBox Name="listeDepartementsCombo"
+                                          DisplayMemberPath="nomDepartementProperty" 
+                                          ItemsSource="{Binding}" 
+                                          SelectedItem="{Binding idDepartementProperty}"
+                                          Width="380">
+                                </ComboBox>
+                            </StackPanel>
                         </StackPanel>
                             
                         <Button x:Name="btnRetourForm" Content="Menu" Click="retourMenu" Height="35" Margin="412.667,135,139.7,130" Width="164" RenderTransformOrigin="0.5,2.31" Grid.Column="1"/>
@@ -37,7 +40,7 @@
                     </Grid>
                 </TabItem>
 
-                <TabItem Header="DataGrid">
+                <TabItem Header="Communes">
                     <StackPanel>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -49,7 +52,7 @@
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="id" Binding="{Binding idCommuneProperty, Mode=OneWay}" />
                                     <DataGridTextColumn Header="nom" Binding="{Binding nomCommuneProperty, Mode=TwoWay}" />
-                                    <DataGridTextColumn Header="idDepartement" Binding="{Binding departementCommuneNameProperty, Mode=OneWay}" />
+                                    <DataGridTextColumn Header="Departement" Binding="{Binding departementCommuneNameProperty, Mode=OneWay}" />
                                 </DataGrid.Columns>
                             </DataGrid>
                             <Button x:Name="btnSuppr" Content="Supprimer" Click="supprimerButton" Margin="47.334,277,490.999,82" Grid.Column="2"/>

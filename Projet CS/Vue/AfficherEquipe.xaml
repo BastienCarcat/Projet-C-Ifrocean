@@ -13,21 +13,24 @@
         <StackPanel >
 
             <TabControl Margin="0,0,0,0" Height="394">
-                <TabItem Header="TextBox">
+                <TabItem Header="Ajouter">
                     <Grid Name ="grigrid" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
-                        <StackPanel>
-
-                            <Label Content="nom"></Label>
-                            <TextBox Name="nomTextBox" Height="20" Margin="0,0,0.300,0" />
-                            <Label Content="nombreMembres"></Label>
-                            <TextBox Name="nombreMembresTextBox" Height="20" Margin="0,0,0.300,0" />
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel>
+                                <Label Content="nom"></Label>
+                                <TextBox Name="nomTextBox" Height="20" Width="380" Margin="5,0,20.300,0" />
+                            </StackPanel>
+                            <StackPanel>
+                                <Label Content="nombreMembres"></Label>
+                                <TextBox Name="nombreMembresTextBox" Width="380" Height="20" Margin="0,0,0.300,0" />
+                            </StackPanel>
                         </StackPanel>
                         <Button x:Name="btnRetourForm" Content="Menu" Click="retourMenu" Height="35" Margin="483,135,146.7,130" Width="164" RenderTransformOrigin="0.5,2.31"/>
                         <Button x:Name="btnAjt" Content="Ajouter" Click="ajouterButton" Height="35" Margin="125,135,504.7,130" Width="164" RenderTransformOrigin="0.5,2.31"/>
                     </Grid>
                 </TabItem>
 
-                <TabItem Header="DataGrid">
+                <TabItem Header="Equipes">
                     <StackPanel>
                         <Grid>
                             <DataGrid Name="listeEquipes" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="81,30,0,148" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeEquipes_SelectionChanged" Width="633">
@@ -37,8 +40,8 @@
                                     <DataGridTextColumn Header="Nombre de Membres" Binding="{Binding nombreMembresEquipeProperty, Mode=TwoWay}" />
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <Button x:Name="btnSuppr" Content="Supprimer" Click="supprimerButton" Margin="47.334,277,490.999,82" Grid.Column="2"/>
-                            <Button x:Name="btnRetourData" Content="Menu" Click="retourMenu" Height="35" Margin="0,277,79.999,82" HorizontalAlignment="Right" Width="222" RenderTransformOrigin="0.5,2.31" Grid.Column="2" />
+                            <Button x:Name="btnSuppr" Content="Supprimer" Click="supprimerButton" Margin="81,277,463,82" Width="250"/>
+                            <Button x:Name="btnRetourData" Content="Menu" Click="retourMenu" Height="35" Margin="0,277,79.999,82" HorizontalAlignment="Right" Width="250" RenderTransformOrigin="0.5,2.31" Grid.Column="2" />
                         </Grid>
 
                     </StackPanel>

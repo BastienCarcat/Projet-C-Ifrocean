@@ -9,17 +9,15 @@
       Title="AfficherZone">
 
     <DockPanel>
-        <!--<TextBox AcceptsReturn="True" />-->
         <StackPanel >
 
             <TabControl Margin="0,0,0,0" Height="394">
-                <TabItem Header="TextBox">
+                <TabItem Header="Ajouter">
                     <Grid Name ="grigrid" Height="300" Margin="0,0,0.300,0" VerticalAlignment="Top">
                         <StackPanel>
 
                             <Label Content="nom"></Label>
-                            <TextBox Name="nomTextBox" Height="20" Margin="0,0,0.300,0" />
-                            <Separator/>
+                            <TextBox Name="nomTextBox" Height="20" Margin="5,0,10,0" />
                             <StackPanel Orientation="Horizontal">
                                 <StackPanel.Resources>
                                     <Style TargetType="{x:Type Label}">
@@ -86,7 +84,7 @@
                     </Grid>
                 </TabItem>
 
-                <TabItem Header="DataGrid">
+                <TabItem Header="Zones de prelevement">
                     <StackPanel>
                         <Grid>
                             <DataGrid Name="listeZones" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="81,30,0,148" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeZones_SelectionChanged" Width="633">
@@ -104,8 +102,8 @@
                                     
                                 </DataGrid.Columns>
                             </DataGrid>
-                            <Button x:Name="btnSuppr" Content="Supprimer" Click="supprimerButton" Margin="47.334,277,490.999,82" Grid.Column="2"/>
-                            <Button x:Name="btnRetourData" Content="Menu" Click="retourMenu" Height="35" Margin="0,277,79.999,82" HorizontalAlignment="Right" Width="222" RenderTransformOrigin="0.5,2.31" Grid.Column="2" />
+                            <Button x:Name="btnSuppr" Content="Supprimer" Click="supprimerButton" Margin="81,277,463,82" Width="250"/>
+                            <Button x:Name="btnRetourData" Content="Menu" Click="retourMenu" Height="35" Margin="0,277,79.999,82" HorizontalAlignment="Right" Width="250" RenderTransformOrigin="0.5,2.31" Grid.Column="2" />
                         </Grid>
 
                     </StackPanel>
