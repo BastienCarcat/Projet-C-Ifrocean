@@ -58,12 +58,28 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DAL\EspeceHasPlageDAL.cs" />
+    <Compile Include="DAL\EspeceHasZoneDAL.cs" />
+    <Compile Include="DAL\EtudeHasEspeceDAL.cs" />
+    <Compile Include="DAL\EtudeHasPlageDAL.cs" />
     <Compile Include="DAL\UtilisateurHasEquipeDAL.cs" />
     <Compile Include="DAL\ZoneDAL.cs" />
+    <Compile Include="DAO\EspeceHasPlageDAO.cs" />
+    <Compile Include="DAO\EspeceHasZoneDAO.cs" />
+    <Compile Include="DAO\EtudeHasEspeceDAO.cs" />
+    <Compile Include="DAO\EtudeHasPlageDAO.cs" />
     <Compile Include="DAO\UtilisateurHasEquipeDAO.cs" />
     <Compile Include="DAO\ZoneDAO.cs" />
+    <Compile Include="ORM\EspeceHasPlageORM.cs" />
+    <Compile Include="ORM\EspeceHasZoneORM.cs" />
+    <Compile Include="ORM\EtudeHasEspeceORM.cs" />
+    <Compile Include="ORM\EtudeHasPlageORM.cs" />
     <Compile Include="ORM\UtilisateurHasEquipeORM.cs" />
     <Compile Include="ORM\ZoneORM.cs" />
+    <Compile Include="VM\EspeceHasPlageViewModel.cs" />
+    <Compile Include="VM\EspeceHasZoneViewModel.cs" />
+    <Compile Include="VM\EtudeHasEspeceViewModel.cs" />
+    <Compile Include="VM\EtudeHasPlageViewModel.cs" />
     <Compile Include="VM\UtilisateurHasEquipeViewModel.cs" />
     <Compile Include="VM\ZoneViewModel.cs" />
     <Compile Include="Vue\AfficerChoixEquipe.xaml.cs">

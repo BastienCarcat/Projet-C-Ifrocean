@@ -38,30 +38,32 @@ namespace Projet_CS.DAO
             return l;
         }
         //////
-        public static UtilisateurHasEquipeDAO getUtilisateurHasEquipeByEquipe(int idEquipe)
+        //public static UtilisateurHasEquipeDAO getUtilisateurHasEquipeByEquipe(int idEquipe)
+        //{
+        //    UtilisateurHasEquipeDAO u = UtilisateurHasEquipeDAL.getUtilisateurHasEquipeByEquipe(idEquipe);
+        //    return u;
+        //}
+        public static UtilisateurHasEquipeDAO getUtilisateurHasEquipe(int idUtilisateur, int idEquipe)
         {
-            UtilisateurHasEquipeDAO u = UtilisateurHasEquipeDAL.getUtilisateurHasEquipeByEquipe(idEquipe);
-            return u;
-        }
-        public static UtilisateurHasEquipeDAO getUtilisateurHasEquipeByUtilisateur(int idUtilisateur)
-        {
-            UtilisateurHasEquipeDAO u = UtilisateurHasEquipeDAL.getUtilisateurHasEquipeByUtilisateur(idUtilisateur);
+            UtilisateurHasEquipeDAO u = UtilisateurHasEquipeDAL.getUtilisateurHasEquipe(idUtilisateur, idEquipe);
             return u;
         }
 
-        public static void updateUtilisateurHasEquipe(UtilisateurHasEquipeViewModel u)
-        {
-            //UtilisateurHasEquipeDAL.updateUtilisateurHasEquipe(new UtilisateurHasEquipeDAO(u.Utilisateur_UtilisateurHasEquipeProperty, u.Equipe_idUtilisateurHasEquipeProperty));
-        }
+        //pas de update clés primaires
+
+        //public static void updateUtilisateur(UtilisateurHasEquipeDAO u)
+        //{
+        //    UtilisateurDAL.updateUtilisateur(u);
+        //}
 
         public static void supprimerUtilisateurHasEquipe(int idUtilisateur, int idEquipe)
         {
             UtilisateurHasEquipeDAL.supprimerUtilisateurHasEquipe(idUtilisateur, idEquipe);
         }
 
-        public static void insertUtilisateurHasEquipe(UtilisateurHasEquipeViewModel u)
+        public static void insertUtilisateurHasEquipe(UtilisateurHasEquipeDAO u)
         {
-            //UtilisateurHasEquipeDAL.insertUtilisateurHasEquipe(new UtilisateurHasEquipeDAO(u.Utilisateur_idUtilisateurHasEquipeProperty, u.Equipe_idUtilisateurHasEquipeProperty));
+            UtilisateurHasEquipeDAL.insertUtilisateurHasEquipe(u);
         }
     }
 }

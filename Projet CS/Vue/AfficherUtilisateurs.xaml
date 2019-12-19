@@ -53,15 +53,17 @@
                 <TabItem Header="Equipes">
                     <Grid>
                         <DataGrid Name="listeUtilisateursHasEquipe" ItemsSource="{Binding}" AutoGenerateColumns="false" HorizontalAlignment="Left" Margin="81,30,0,148" BorderBrush="Black" Background="#FFA4A4A4" SelectionChanged="listeUtilisateursHasEquipe_SelectionChanged" Width="633">
-                            <!--ItemsSource="{Binding}"-->
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="id Utilisateur" Binding="{Binding Utilisateur_idUtilisateurHasEquipeProperty, Mode=TwoWay}" />
-                                <DataGridTextColumn Header="id Equipe" Binding="{Binding Equipe_idUtilisateurHasEquipeProperty, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="id Utilisateur" Binding="{Binding UtilisateurName_UtilisateurHasEquipeProperty, Mode= OneWay}" />
+                                <DataGridTextColumn Header="id Equipe" Binding="{Binding EquipeName_UtilisateurHasEquipeProperty, Mode=OneWay}" />
+                                
+                                <!--essaie pour faire le update-->
                                 <!--<DataGridComboBoxColumn  x:Name="EquipeComboBoxColumn" 
+                                                         DisplayMemberPath="nomEquipeProperty"
                                                          ItemsSource="{Binding}"
-                                                         DisplayMemberPath="Equipe_idEquipe"
-                                                         />-->
-                                <!--IsReadOnly="True"-->
+                                                         SelectedItemBinding="{Binding EquipeID_UtilisateurHasEquipeProperty, Mode=TwoWay}"
+                                                         TextBinding="{Binding EquipeName_UtilisateurHasEquipeProperty, Mode=OneWay}"
+                                                         Header="Equipe"/>-->
                             </DataGrid.Columns>
                         </DataGrid>
                         <Button x:Name="btnSuppr2" Content="Supprimer" Click="supprimerButton2" Height="35" Margin="47,275,491,56"/>
@@ -90,7 +92,7 @@
 
                         </StackPanel>
                         <Button x:Name="btnRetour3" Content="Menu" Click="retourMenu" Height="35" Margin="478,242,151.7,23" Width="164" RenderTransformOrigin="0.5,2.31"/>
-                        <Button x:Name="btnAjt2" Content="Ajouter" Click="ajouterButton" Height="35" Margin="125,242,504.7,23" Width="164" RenderTransformOrigin="0.5,2.31"/>
+                        <Button x:Name="btnAjt2" Content="Ajouter" Click="ajouterButton2" Height="35" Margin="125,242,504.7,23" Width="164" RenderTransformOrigin="0.5,2.31"/>
                     </Grid>
                 </TabItem>
             </TabControl>

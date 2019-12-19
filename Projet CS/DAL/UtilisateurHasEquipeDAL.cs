@@ -31,52 +31,60 @@ namespace Projet_CS.DAL
             reader.Close();
             return l;
         }
-        public static UtilisateurHasEquipeDAO getUtilisateurHasEquipeByUtilisateur(int idUtilisateur)
+
+        //Select général -> pas de select de tout les user avec tel equipe
+
+        //public static UtilisateurHasEquipeDAO getUtilisateurHasEquipeByUtilisateur(int idUtilisateur)
+        //{
+        //    string query = "SELECT * FROM utilisateur_has_equipe WHERE idUtilisateur=" + idUtilisateur + ";";
+        //    MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
+        //    cmd.ExecuteNonQuery();
+        //    MySqlDataReader reader = cmd.ExecuteReader();
+        //    reader.Read();
+        //    UtilisateurHasEquipeDAO user = new UtilisateurHasEquipeDAO(reader.GetInt32(0), reader.GetInt32(1));
+        //    reader.Close();
+        //    return user;
+        //}
+        public static UtilisateurHasEquipeDAO getUtilisateurHasEquipe(int idUtilisateur, int idEquipe)
         {
-            string query = "SELECT * FROM utilisateur_has_equipe WHERE idUtilisateur=" + idUtilisateur + ";";
+            string query = "SELECT * FROM utilisateur_has_equipe WHERE utilisateur_idUtilisateur=" + idUtilisateur + " and equipe_idEquipe=" + idEquipe + ";";
             MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
             cmd.ExecuteNonQuery();
             MySqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            UtilisateurHasEquipeDAO user = new UtilisateurHasEquipeDAO(reader.GetInt32(0), reader.GetInt32(1));
+            UtilisateurHasEquipeDAO user;
+            if (reader.HasRows)
+            {
+                user = new UtilisateurHasEquipeDAO(reader.GetInt32(0), reader.GetInt32(1));
+            }
+            else
+            {
+                user = new UtilisateurHasEquipeDAO(1, 1);
+            }
             reader.Close();
             return user;
         }
-        public static UtilisateurHasEquipeDAO getUtilisateurHasEquipeByEquipe(int idEquipe)
-        {
-            string query = "SELECT * FROM UtilisateurHasEquipe WHERE login=" + idEquipe + ";";
-            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
-            cmd.ExecuteNonQuery();
-            MySqlDataReader reader = cmd.ExecuteReader();
-            reader.Read();
-            UtilisateurHasEquipeDAO user = new UtilisateurHasEquipeDAO(reader.GetInt32(0), reader.GetInt32(1));
-            //if (reader.HasRows)
-            //{
-            //    user = new UtilisateurHasEquipeDAO(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetByte(3), reader.GetString(4), reader.GetString(5));
-            //}
-            //else
-            //{
-            //    user = new UtilisateurHasEquipeDAO(1, "Bad", "UserName", 0, "none", "none");
-            //}
-            reader.Close();
-            return user;
-        }
-        public static void updateUtilisateurHasEquipe(UtilisateurHasEquipeDAO u)
-        {            
-            string query = "UPDATE utilisateur_has_equipe SET Utilisateur_idUtilisateur =" + u.Utilisateur_idUtilisateurDAO + ", Equipe_idEquipe=" + u.Utilisateur_idUtilisateurDAO + " WHERE Utilisateur_idUtilisateur =" + u.Utilisateur_idUtilisateurDAO + " AND Equipe_idEquipe =" + u.Equipe_idEquipeDAO + ";";
-            ///////////???
-            MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
-            MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
-            cmd.ExecuteNonQuery();
-        }
+
+        //pas de update de clé primaire 
+
+        //public static void updateUtilisateurHasEquipe(UtilisateurHasEquipeDAO u)
+        //{            
+        //    string query = "UPDATE utilisateur_has_equipe SET Utilisateur_idUtilisateur =" + u.Utilisateur_idUtilisateurDAO + ", Equipe_idEquipe=" + u.Utilisateur_idUtilisateurDAO + " WHERE Utilisateur_idUtilisateur =" + u.Utilisateur_idUtilisateurDAO + " AND Equipe_idEquipe =" + u.Equipe_idEquipeDAO + ";";
+        //    ///////////???
+        //    MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
+        //    MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd);
+        //    cmd.ExecuteNonQuery();
+        //}
         public static void insertUtilisateurHasEquipe(UtilisateurHasEquipeDAO u)
-        {            
-            //int id = getMaxIdUtilisateurHasEquipe() + 1;
+        {                        
             string query = "INSERT INTO utilisateur_has_equipe VALUES (\"" + u.Utilisateur_idUtilisateurDAO + "\",\"" + u.Equipe_idEquipeDAO + "\");";
             MySqlCommand cmd2 = new MySqlCommand(query, DALConnection.connection);
             MySqlDataAdapter sqlDataAdap = new MySqlDataAdapter(cmd2);
             cmd2.ExecuteNonQuery();
         }
+
+        //pas de max id avec plusieurs clés primaires
+
         //public static int getMaxIdUtilisateurHasEquipe()
         //{
         //    string query = "SELECT IFNULL(MAX(idUtilisateurHasEquipe),0) FROM UtilisateurHasEquipe;";

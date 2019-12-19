@@ -9,10 +9,11 @@ using Projet_CS.DAO;
 
 namespace Projet_CS.VM
 {
-    public class UtilisateurHasEquipeViewModel : INotifyPropertyChanged
+    public class UtilisateurHasEquipeViewModel// : INotifyPropertyChanged
     {        
         private UtilisateurViewModel idUtilisateur;
         private EquipeViewModel idEquipe;
+        //private int idEquipeTamp;
 
         public UtilisateurHasEquipeViewModel() { }
 
@@ -20,6 +21,7 @@ namespace Projet_CS.VM
         {
             this.idUtilisateur = idUtilisateur;
             this.idEquipe = idEquipe;
+            //this.idEquipeTamp = idEquipe.idEquipeProperty;
         }
 
         public UtilisateurViewModel Utilisateur_UtilisateurHasEquipeProperty
@@ -28,7 +30,7 @@ namespace Projet_CS.VM
             set
             {
                 idUtilisateur = value;
-                OnPropertyChanged("Utilisateur_UtilisateurHasEquipeProperty");
+            //    OnPropertyChanged("Utilisateur_UtilisateurHasEquipeProperty");
             }
         }
         public String UtilisateurName_UtilisateurHasEquipeProperty
@@ -41,23 +43,24 @@ namespace Projet_CS.VM
             set
             {
                 idEquipe = value;
-                OnPropertyChanged("Equipe_UtilisateurHasEquipeProperty");
+            //    OnPropertyChanged("Equipe_UtilisateurHasEquipeProperty");
             }
         }
         public String EquipeName_UtilisateurHasEquipeProperty
         {
-            get { return idEquipe.nomEquipeProperty; }
+            get { return idEquipe.nomEquipeProperty; }           
         }
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void OnPropertyChanged(string info)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(info));
-                UtilisateurHasEquipeDAO.updateUtilisateurHasEquipe(this);                
-            }
-        }
+        
+        //public event PropertyChangedEventHandler PropertyChanged;
+        //private void OnPropertyChanged(string info)
+        //{
+        //    PropertyChangedEventHandler handler = PropertyChanged;
+        //    if (handler != null)
+        //    {
+        //        handler(this, new PropertyChangedEventArgs(info));
+        //        UtilisateurHasEquipeORM.updateUtilisateurHasEquipe(this);                
+        //    }
+        //}
 
     }
 }
