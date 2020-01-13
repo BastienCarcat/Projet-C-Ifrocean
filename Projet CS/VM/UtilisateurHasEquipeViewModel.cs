@@ -13,15 +13,13 @@ namespace Projet_CS.VM
     {        
         private UtilisateurViewModel idUtilisateur;
         private EquipeViewModel idEquipe;
-        //private int idEquipeTamp;
 
         public UtilisateurHasEquipeViewModel() { }
 
         public UtilisateurHasEquipeViewModel(UtilisateurViewModel idUtilisateur, EquipeViewModel idEquipe)
         {
             this.idUtilisateur = idUtilisateur;
-            this.idEquipe = idEquipe;
-            //this.idEquipeTamp = idEquipe.idEquipeProperty;
+            this.idEquipe = idEquipe;            
         }
 
         public UtilisateurViewModel Utilisateur_UtilisateurHasEquipeProperty

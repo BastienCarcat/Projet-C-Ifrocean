@@ -10,13 +10,7 @@ using System.Threading.Tasks;
 namespace Projet_CS.ORM
 {
     class UtilisateurHasEquipeORM
-    {
-        //public static UtilisateurHasEquipeViewModel getUtilisateurHasEquipeByEquipe(int idEquipe)
-        //{
-        //    UtilisateurHasEquipeDAO uDAO = UtilisateurHasEquipeDAO.getUtilisateurHasEquipeByEquipe(idEquipe);
-        //    UtilisateurHasEquipeViewModel u = new UtilisateurHasEquipeViewModel(uDAO.Utilisateur_idUtilisateurDAO, uDAO.Equipe_idEquipeDAO);
-        //    return u;
-        //}
+    {        
         public static UtilisateurHasEquipeViewModel getUtilisateurHasEquipe(int idUtilisateur, int idEquipe)
         {
             UtilisateurHasEquipeDAO uDAO = UtilisateurHasEquipeDAO.getUtilisateurHasEquipe(idUtilisateur, idEquipe);

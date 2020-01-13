@@ -32,19 +32,6 @@ namespace Projet_CS.DAL
             return l;
         }
 
-        //Select général -> pas de select de tout les user avec tel equipe
-
-        //public static UtilisateurHasEquipeDAO getUtilisateurHasEquipeByUtilisateur(int idUtilisateur)
-        //{
-        //    string query = "SELECT * FROM utilisateur_has_equipe WHERE idUtilisateur=" + idUtilisateur + ";";
-        //    MySqlCommand cmd = new MySqlCommand(query, DALConnection.connection);
-        //    cmd.ExecuteNonQuery();
-        //    MySqlDataReader reader = cmd.ExecuteReader();
-        //    reader.Read();
-        //    UtilisateurHasEquipeDAO user = new UtilisateurHasEquipeDAO(reader.GetInt32(0), reader.GetInt32(1));
-        //    reader.Close();
-        //    return user;
-        //}
         public static UtilisateurHasEquipeDAO getUtilisateurHasEquipe(int idUtilisateur, int idEquipe)
         {
             string query = "SELECT * FROM utilisateur_has_equipe WHERE utilisateur_idUtilisateur=" + idUtilisateur + " and equipe_idEquipe=" + idEquipe + ";";

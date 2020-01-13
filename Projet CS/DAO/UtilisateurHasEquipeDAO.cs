@@ -14,8 +14,7 @@ namespace Projet_CS.DAO
     {
         public int Utilisateur_idUtilisateurDAO;       
         public int Equipe_idEquipeDAO;       
-        //public int UtilisateurUpdate_idUtilisateurDAO;       
-        //public int EquipeUpdate_idEquipeDAO;
+        
 
         public UtilisateurHasEquipeDAO(int idUtilisateur, int idEquipe)
         {
@@ -23,26 +22,13 @@ namespace Projet_CS.DAO
             this.Equipe_idEquipeDAO = idEquipe;            
         }
 
-        //public UtilisateurHasEquipeDAO(int idUtilisateur, int idEquipe, int idUtilisateurUpdate, int idEquipeUpdate)
-        //{
-        //    this.Utilisateur_idUtilisateurDAO = idUtilisateur;
-        //    this.Equipe_idEquipeDAO = idEquipe;
-        //    this.UtilisateurUpdate_idUtilisateurDAO = idUtilisateurUpdate;
-        //    this.EquipeUpdate_idEquipeDAO = idEquipeUpdate;
-        //}
-
-        //////?
         public static ObservableCollection<UtilisateurHasEquipeDAO> listeUtilisateurHasEquipes()
         {
             ObservableCollection<UtilisateurHasEquipeDAO> l = UtilisateurHasEquipeDAL.selectUtilisateurHasEquipes();
             return l;
         }
-        //////
-        //public static UtilisateurHasEquipeDAO getUtilisateurHasEquipeByEquipe(int idEquipe)
-        //{
-        //    UtilisateurHasEquipeDAO u = UtilisateurHasEquipeDAL.getUtilisateurHasEquipeByEquipe(idEquipe);
-        //    return u;
-        //}
+
+
         public static UtilisateurHasEquipeDAO getUtilisateurHasEquipe(int idUtilisateur, int idEquipe)
         {
             UtilisateurHasEquipeDAO u = UtilisateurHasEquipeDAL.getUtilisateurHasEquipe(idUtilisateur, idEquipe);

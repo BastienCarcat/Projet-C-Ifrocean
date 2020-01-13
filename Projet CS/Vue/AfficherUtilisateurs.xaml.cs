@@ -92,11 +92,6 @@ namespace Projet_CS.Vue
             listeUtilisateursHasEquipe.Items.Refresh();            
         }
 
-        //private void modifierButton(object sender, RoutedEventArgs e)
-        //{
-        //    myDataObjectUtilisateurHasEquipe.EquipeID_UtilisateurHasEquipeProperty = (UtilisateurHasEquipeViewModel)EquipeComboBoxColumn.SelectedItemBinding;
-        //}
-
         private void supprimerButton(object sender, RoutedEventArgs e)
         {
             UtilisateurViewModel toRemove = (UtilisateurViewModel)listeUtilisateurs.SelectedItem;
